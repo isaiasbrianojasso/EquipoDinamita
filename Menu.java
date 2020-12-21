@@ -20,18 +20,22 @@ public class Menu extends World
 
     private void prepare()
     {
-        GreenfootImage mainTitle = new GreenfootImage("./images/MainMenuBackground.jpg");
-        mainTitle.scale(getWidth(),getHeight());
-        setBackground(new GreenfootImage(mainTitle));
-
+        GreenfootImage backgroundImage = new GreenfootImage("./images/MainMenuBackground.jpg");
+        GreenfootImage titleImage = new GreenfootImage("./images/titleMain.png");
+        titleImage.scale(getWidth()/3,getHeight()/3);
+        backgroundImage.scale(getWidth(),getHeight());
+        backgroundImage.drawImage(titleImage, getWidth ()/3,40);
+        setBackground(backgroundImage);
+        
         addObject (startButton, getWidth ()/2, getHeight ()/2);
         addObject (recordsButton, getWidth ()/2, (getHeight ()/2)+75);
         addObject (controlsButton, getWidth ()/2, (getHeight ()/2)+150);
     }
 
-    public void act() 
+    public void act()
     {
-        sound.playLoop();
+        //sound.playLoop();
+        
         lastKeyPressed = Greenfoot.getKey();
         
         if(lastKeyPressed != null)
