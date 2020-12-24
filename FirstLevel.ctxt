@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=FirstLevel
+comment1.params=
+comment1.target=FirstLevel()
+comment2.params=
+comment2.target=void\ setLobby()
+comment3.params=
+comment3.target=void\ setHall()
+comment4.params=colorWall\ floorType
+comment4.target=void\ setBigRoom(int,\ int)
+comment5.params=
+comment5.target=void\ setWestHall()
+comment6.params=
+comment6.target=void\ setEastHall()
+comment7.params=
+comment7.target=void\ setDinningRoom()
+comment8.params=
+comment8.target=void\ setKitchen()
+numComments=9

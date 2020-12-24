@@ -135,16 +135,16 @@ public abstract class Character extends Actor
                 wall = (Wall)getOneObjectAtOffset(0,-1,Wall.class);
             break;
             case DOWN:
-                collisionObject = (Forniture)getOneObjectAtOffset(0,18,Forniture.class);
-                wall = (Wall)getOneObjectAtOffset(0,25,Wall.class);
+                collisionObject = (Forniture)getOneObjectAtOffset(0,20,Forniture.class);
+                wall = (Wall)getOneObjectAtOffset(0,24,Wall.class);
             break;
             case LEFT:
                 collisionObject = (Forniture)getOneObjectAtOffset(-13,12,Forniture.class);
-                wall = (Wall)getOneObjectAtOffset(-17,12,Wall.class);
+                wall = (Wall)getOneObjectAtOffset(-15,12,Wall.class);
             break;
             case RIGHT:
-                collisionObject = (Forniture)getOneObjectAtOffset(13,12,Forniture.class);
-                wall = (Wall)getOneObjectAtOffset(17,12,Wall.class);
+                collisionObject = (Forniture)getOneObjectAtOffset(11,12,Forniture.class);
+                wall = (Wall)getOneObjectAtOffset(12,12,Wall.class);
             break;
         }
         

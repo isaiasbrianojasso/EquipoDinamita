@@ -110,6 +110,9 @@ public class Player extends Character
                 checkDoor();
             }
         }
+        catch(ObjectCollisionException Ex) {
+            advance = 0;
+        }
     }
     
     public void checkDoor() {
@@ -117,8 +120,12 @@ public class Player extends Character
             ((Door)collisionObject).tryToOpen(inventory);
         } else {
             collisionObject.receiveObject();
-            inventory.add(collisionObject.getObject());
-            collisionObject.setObject(null);
+            
+            if(collisionObject.getObject() != null) {
+                
+                inventory.add(collisionObject.getObject());
+                collisionObject.setObject(null);
+            }
         }
     }
 }

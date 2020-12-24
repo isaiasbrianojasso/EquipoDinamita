@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Level
+comment1.params=colorWall\ floorType
+comment1.target=void\ setRoom(int,\ int)
+comment2.params=colorWall\ floorType
+comment2.target=void\ setBigLobby(int,\ int)
+numComments=3
