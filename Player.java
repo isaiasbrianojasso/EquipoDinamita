@@ -11,6 +11,7 @@ public class Player extends Character
     private List<KeyObject> inventory = new ArrayList<KeyObject>();
 
     public Player() {
+        
         lives = INITIAL_LIVES;
         speed = INITIAL_SPEED;
         advance = INITIAL_ADVANCE;
@@ -46,6 +47,22 @@ public class Player extends Character
     
     public int getLives() {
         return lives;
+    }
+    
+    public void addLife() {
+        lives++;
+    }
+    
+    public void removeLife(int damage) {
+        lives -= damage;
+    }
+    
+    public void removeItem(int index) {
+        inventory.remove(index);
+    }
+    
+    public List<KeyObject> getInventory() {
+        return inventory;
     }
     
     public void act() {

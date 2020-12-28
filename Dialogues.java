@@ -29,6 +29,18 @@ public class Dialogues
         return "Le hace falta los botones para funcionar, tal vez haya alguno cerca";
     }
     
+    public String getLineSpecialItem(){
+        return "Creo que aún no es el momento de usar esto";
+    }
+    
+    public String getLineMaxHealt(){
+        return "No puedo curarme más, mi salud está al máximo";
+    }
+    
+    public String getLineThrowingSpecialItem(){
+        return "Creo que aún necesito esto";
+    }
+    
     public String getLine1() {
         return "Parece haber algo debajo de esta cama";
     }

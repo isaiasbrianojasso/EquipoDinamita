@@ -13,7 +13,7 @@ public class ThirdLevel extends Level
         
         Door door8A = new Door("PUERTA 08",0,0);
         door8A.setDestination('a',385,300);
-        //door8A.setLocked(true);
+        door8A.setLocked(true);
         door8A.setDescription(dialogues.getLineLockedDoor());
         keyForniture.add(1,door8A);
         
@@ -61,10 +61,6 @@ public class ThirdLevel extends Level
         Door door9A = new Door("PUERTA 09",0,0);
         door9A.setLocked(true);
         getWorld().addObject(door9A,673,103);
-        
-        getWorld().addObject(new Stool(),335,200);
-        getWorld().addObject(new Stool(),360,175);
-        getWorld().addObject(new Stool(),385,200);
     }
     
     public void setHall() {

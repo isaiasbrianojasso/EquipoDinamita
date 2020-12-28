@@ -2,17 +2,18 @@ import greenfoot.*;
 
 public class Game extends World
 {
-    private Player player = new Player();
+    public Player player = new Player();
     public Basement basement = new Basement();
     public FirstLevel firstLevel = new FirstLevel();
     public SecondLevel secondLevel = new SecondLevel();
     public ThirdLevel thirdLevel = new ThirdLevel();
     public HUD hud = new HUD(player);
+    public Inventory inventory = new Inventory();
 
     public Game()
     {
         super(1024, 480, 1);
-        setActOrder(Floor.class,Wall.class,Forniture.class,Character.class,HUD.class);
+        setActOrder(Floor.class,Wall.class,Forniture.class,Character.class,Inventory.class,SelectLight.class,KeyObject.class,TextBox.class,HUD.class);
         prepare();
         act();
     }
@@ -37,7 +38,9 @@ public class Game extends World
     }
 
     public void act() {
-        
+        if(Greenfoot.isKeyDown("z")) {
+            showInventory();
+        }
     }
     
     public void changeRoom(char destinationRoom,int destinationX,int destinationY) {
@@ -131,5 +134,20 @@ public class Game extends World
         removeObjects(getObjects(Forniture.class));
         removeObjects(getObjects(Floor.class));
         removeObjects(getObjects(Wall.class));
+    }
+    
+    public void showInventory() {
+        
+        if (player.getX() < (getWidth()/2)) {
+            addObject(inventory,3*(getWidth()/4),getHeight()/2);
+        }
+        else {
+            addObject(inventory,getWidth()/4,getHeight()/2);
+        }
+        
+        inventory.showInventoryList();
+        inventory.checkInteractions(player.getInventory());
+        removeObject(inventory);
+        Greenfoot.delay(10);
     }
 }
