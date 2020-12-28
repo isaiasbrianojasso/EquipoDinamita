@@ -2,10 +2,13 @@ import greenfoot.*;
 
 public class TextBox extends Actor
 {
-    private GreenfootImage background = new GreenfootImage("./images/extras/text_box.png");
-    
     public TextBox() {
-        setImage(background);
+        setImage(new GreenfootImage("./images/hud/text_box.png"));
+    }
+    
+    public void displayRoomName(String name) {
+        setImage(new GreenfootImage("./images/hud/room_name_box.png"));
+        showText("",name);
     }
     
     public void displayDescription(String title, String description) {

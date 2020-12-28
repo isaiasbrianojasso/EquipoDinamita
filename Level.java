@@ -5,8 +5,13 @@ public abstract class Level extends Actor
 {
     public Dialogues dialogues = new Dialogues();
     public List<Forniture> keyForniture = new ArrayList<Forniture>();
+    public String roomName;
     public int i;
     public int j;
+    
+    public String getRoomName() {
+        return roomName;
+    }
     
     public void setRoom(int colorWall,int floorType){
         

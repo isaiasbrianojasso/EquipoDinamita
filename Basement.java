@@ -9,6 +9,8 @@ public class Basement extends Level
     
     public void setBasement() {
         
+        roomName = "SOTANO";
+        
         setBigLobby(4,4);
         
         Door doorEA = new Door("Sala este",0,1);
