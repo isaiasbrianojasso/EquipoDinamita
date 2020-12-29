@@ -13,13 +13,13 @@ public class TextBox extends Actor
     
     public void displayDescription(String title, String description) {
         showText(title,description);
-        waitToPressX();
+        waitToConfirm();
         eraseText();
     }
     
     public void receiveObject(KeyObject object) {
         showText("   ",object.getName() + " recibido!");
-        waitToPressX();
+        waitToConfirm();
         eraseText();
     }
     
@@ -33,9 +33,9 @@ public class TextBox extends Actor
         getWorld().showText("    ",this.getX(),this.getY());
     }
     
-    public void waitToPressX() {
+    public void waitToConfirm() {
         Greenfoot.delay(10);
-        while(!Greenfoot.isKeyDown("x")) {
+        while(!Greenfoot.isKeyDown(Keys.CONFIRMATION)) {
             Greenfoot.delay(1);
         }
     }

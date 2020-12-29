@@ -2,6 +2,4 @@
 comment0.target=BandAid
 comment1.params=
 comment1.target=BandAid()
-comment2.params=
-comment2.target=int\ getLifeToRecover()
-numComments=3
+numComments=2

@@ -48,23 +48,23 @@ public class Inventory extends Actor
         Greenfoot.delay(10);
         int index = 0;
         
-        while(!Greenfoot.isKeyDown("z")) {
+        while(!Greenfoot.isKeyDown(Keys.INVENTORY)) {
             
-            if(Greenfoot.isKeyDown("right") && index < temporalInventory.size()-1) {
+            if(Greenfoot.isKeyDown(Keys.RIGHT) && index < temporalInventory.size()-1) {
                 if(index == 0 || index%4 != 0) {
                     index++;
                     moveSelection(0);
                 }
-            } else if(Greenfoot.isKeyDown("left") && index%5 != 0) {
+            } else if(Greenfoot.isKeyDown(Keys.LEFT) && index%5 != 0) {
                 index--;
                 moveSelection(1);
-            } else if(Greenfoot.isKeyDown("up") && index > 4) {
+            } else if(Greenfoot.isKeyDown(Keys.UP) && index > 4) {
                 index-=5;
                 moveSelection(2);
-            } else if(Greenfoot.isKeyDown("down") && index+5 < temporalInventory.size()) {
+            } else if(Greenfoot.isKeyDown(Keys.DOWN) && index+5 < temporalInventory.size()) {
                 index+=5;
                 moveSelection(3);
-            } else if(Greenfoot.isKeyDown("x")) {
+            } else if(Greenfoot.isKeyDown(Keys.CONFIRMATION)) {
                 itemSelected(index);
                 showInventoryList();
                 index = 0;
@@ -86,17 +86,17 @@ public class Inventory extends Actor
         
         int option = 0;
         
-        while(!Greenfoot.isKeyDown("z")) {
+        while(!Greenfoot.isKeyDown(Keys.INVENTORY)) {
             
-            if(Greenfoot.isKeyDown("down")) {
+            if(Greenfoot.isKeyDown(Keys.DOWN)) {
                 option++;
                 if(option == 3) {option = 0;}
                 changeOption(option);
-            } else if(Greenfoot.isKeyDown("up")) {
+            } else if(Greenfoot.isKeyDown(Keys.UP)) {
                 option--;
                 if(option == -1) {option = 2;}
                 changeOption(option);
-            } else if(Greenfoot.isKeyDown("x")) {
+            } else if(Greenfoot.isKeyDown(Keys.CONFIRMATION)) {
                 executeOption(option,index);
                 clearOptionsScreen();
                 setImage(inventoryBox);
@@ -149,7 +149,7 @@ public class Inventory extends Actor
     }
     
     public void useItem(int index) {
-        if(temporalInventory.get(index).getClass() == BandAid.class) {
+        if(temporalInventory.get(index).getClass() == Cure.class) {
             cure(index);
         }
         else {
@@ -161,7 +161,7 @@ public class Inventory extends Actor
     
     public void cure(int index) {
         if(((Game)getWorld()).player.getLives() != ((Game)getWorld()).player.getInitialLives()) {
-            ((Game)getWorld()).player.addLife();
+            ((Game)getWorld()).player.addLife(((Cure)temporalInventory.get(index)).getLifeToRecover());
             ((Game)getWorld()).hud.updateLives(((Game)getWorld()).player.getLives());
             ((Game)getWorld()).player.removeItem(index);
         }
