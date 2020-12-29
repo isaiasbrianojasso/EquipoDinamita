@@ -6,7 +6,7 @@ public class ControlsButton extends Button
     {
         getWorld().showText("Controles",this.getX(),this.getY());
         validateImageChange();
-        if(buttonActive == true && buttonPressed == true) {
+        if(buttonActive && buttonPressed) {
             Greenfoot.setWorld (new Controls());
         }
     }    

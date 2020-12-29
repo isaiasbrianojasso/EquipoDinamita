@@ -11,7 +11,7 @@ public class StartButton extends Button
         getWorld().showText("Nuevo juego",this.getX(),this.getY());
         validateImageChange();
         
-        if(buttonActive == true && buttonPressed == true) {
+        if(buttonActive && buttonPressed) {
             Greenfoot.setWorld (new Game());
         }
     }
