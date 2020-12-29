@@ -9,7 +9,6 @@ public class Inventory extends Actor
     private SelectLight itemSelected = new SelectLight(0);
     private SelectLight options = new SelectLight(1);
     private List<KeyObject> temporalInventory;
-    private Dialogues lines = new Dialogues();
     
     public Inventory() {
         setImage(inventoryBox);
@@ -154,7 +153,7 @@ public class Inventory extends Actor
         }
         else {
             getWorld().addObject(textbox,getWorld().getWidth()/2,400);
-            textbox.displayDescription("  ",lines.getLineSpecialItem());
+            textbox.displayDescription("  ",Dialogues.LINE_USING_SPECIAL_ITEM);
             getWorld().removeObject(textbox);
         }
     }
@@ -167,7 +166,7 @@ public class Inventory extends Actor
         }
         else {
             getWorld().addObject(textbox,getWorld().getWidth()/2,400);
-            textbox.displayDescription("  ",lines.getLineMaxHealt());
+            textbox.displayDescription("  ",Dialogues.LINE_MAX_HEALT);
             getWorld().removeObject(textbox);
         }
     }
@@ -175,7 +174,7 @@ public class Inventory extends Actor
     public void throwItem(int index) {
         if(temporalInventory.get(index).getClass() != BandAid.class) {
             getWorld().addObject(textbox,getWorld().getWidth()/2,400);
-            textbox.displayDescription("  ",lines.getLineThrowingSpecialItem());
+            textbox.displayDescription("  ",Dialogues.LINE_THROWING_SPECIAL_ITEM);
             getWorld().removeObject(textbox);
         }
         else {

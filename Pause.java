@@ -4,9 +4,10 @@ import java.awt.Robot;
 public class Pause extends Actor
 {
     private SelectLight options = new SelectLight(1);
+    private GreenfootImage OPTIONS_BOX = new GreenfootImage("./images/hud/options_box.png");
     
     public Pause() {
-        setImage(new GreenfootImage("./images/hud/options_box.png"));
+        setImage(OPTIONS_BOX);
     }
     
     public void startPause() {

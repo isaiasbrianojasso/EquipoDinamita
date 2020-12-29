@@ -2,8 +2,6 @@
 comment0.target=Level
 comment1.params=
 comment1.target=java.lang.String\ getRoomName()
-comment2.params=colorWall\ floorType
-comment2.target=void\ setRoom(int,\ int)
-comment3.params=colorWall\ floorType
-comment3.target=void\ setBigLobby(int,\ int)
-numComments=4
+comment2.params=X\ Y\ colorWall\ floorType
+comment2.target=void\ setRoom(int,\ int,\ int,\ int)
+numComments=3

@@ -95,7 +95,7 @@ public class Door extends Forniture
         int index = 0;
         
         for (KeyObject keyObject : inventory) {
-            if(keyObject.getClass() == Key.class && ((Key)keyObject).getNumber().equals(doorNumber)) {
+            if(keyObject instanceof Key && ((Key)keyObject).getNumber().equals(doorNumber)) {
                 ((Game)getWorld()).player.removeItem(index);
                 found = true;
                 break;
