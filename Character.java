@@ -3,7 +3,7 @@ import greenfoot.*;
 public abstract class Character extends Actor
 {
     private final int DELAY_LIMIT = 20;
-    Forniture collisionObject;
+    protected Forniture collisionObject;
     protected int currentSprite = 0;
     protected int delay = 0;
     protected int speed;
@@ -13,10 +13,10 @@ public abstract class Character extends Actor
 
     protected CharacterDirection direction;
 
-    public GreenfootImage []spritesRight = new GreenfootImage[4];
-    public GreenfootImage []spritesUp = new GreenfootImage[4];
-    public GreenfootImage []spritesLeft = new GreenfootImage[4];
-    public GreenfootImage []spritesDown = new GreenfootImage[4];
+    protected GreenfootImage []spritesRight = new GreenfootImage[4];
+    protected GreenfootImage []spritesUp = new GreenfootImage[4];
+    protected GreenfootImage []spritesLeft = new GreenfootImage[4];
+    protected GreenfootImage []spritesDown = new GreenfootImage[4];
     
     public Character() {
         setImage(spritesDown[0]);
