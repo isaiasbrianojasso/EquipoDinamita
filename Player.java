@@ -56,7 +56,7 @@ public class Player extends Character
     }
     
     public void removeLife(int damage) {
-        lives -= damage;
+        lives = lives-damage;
     }
     
     public void removeItem(int index) {

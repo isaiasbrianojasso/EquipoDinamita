@@ -32,7 +32,6 @@ public class Menu extends World
         showText("CONTROLES", getWidth()/2,(getHeight()/2)+150);
         
         option = 0;
-        act();
     }
 
     public void act()

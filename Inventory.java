@@ -63,7 +63,7 @@ public class Inventory extends Actor
             } else if(Greenfoot.isKeyDown(Keys.DOWN) && index+5 < temporalInventory.size()) {
                 index+=5;
                 moveSelection(3);
-            } else if(Greenfoot.isKeyDown(Keys.CONFIRMATION)) {
+            } else if(Greenfoot.isKeyDown(Keys.CONFIRMATION) && temporalInventory.size() != 0) {
                 itemSelected(index);
                 showInventoryList();
                 index = 0;

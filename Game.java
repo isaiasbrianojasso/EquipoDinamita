@@ -14,7 +14,7 @@ public class Game extends World
     public Game()
     {
         super(1024, 480, 1);
-        setActOrder(Floor.class,Wall.class,Forniture.class,Character.class,Inventory.class,Pause.class,SelectLight.class,KeyObject.class,TextBox.class,HUD.class);
+        setActOrder(Floor.class,Wall.class,Forniture.class,Character.class,Spider.class,Inventory.class,Pause.class,SelectLight.class,KeyObject.class,TextBox.class,HUD.class);
         prepare();
         act();
     }
@@ -27,7 +27,7 @@ public class Game extends World
         setBackground(background);
 
         addObject(hud,0,0);
-        addObject(basement,0,0);
+        
         addObject(firstLevel,0,0);
         addObject(secondLevel,0,0);
         addObject(thirdLevel,0,0);
@@ -125,6 +125,7 @@ public class Game extends World
                 hud.setRoomName(secondLevel.getRoomName());
             break;
             case 's':
+                addObject(basement,0,0);
                 player.setDirection(CharacterDirection.LEFT);
                 player.setOriginalPosition();
                 basement.setBasement();
@@ -138,6 +139,7 @@ public class Game extends World
         removeObjects(getObjects(Forniture.class));
         removeObjects(getObjects(Floor.class));
         removeObjects(getObjects(Wall.class));
+        removeObjects(getObjects(Spider.class));
     }
     
     public void showInventory() {
