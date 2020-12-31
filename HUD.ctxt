@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=HUD
+comment1.params=player
+comment1.target=HUD(Player)
+comment2.params=
+comment2.target=void\ initializeLives()
+comment3.params=
+comment3.target=void\ setLives()
+comment4.params=roomName
+comment4.target=void\ setRoomName(java.lang.String)
+comment5.params=
+comment5.target=void\ setHud()
+comment6.params=playerLives
+comment6.target=void\ updateLives(int)
+numComments=7

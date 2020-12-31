@@ -3,14 +3,14 @@ import greenfoot.*;
 public class KeyObject extends Actor
 {
     protected String DEFAULT_DESCRIPTION;
-    public String description;
-    public String name;
+    protected String description;
+    protected String name;
     
     public void setDescription(String description) {
         this.description = description;
     }
     
-    public void detDesfaultDescription() {
+    public void setDefaultDescription() {
         description = DEFAULT_DESCRIPTION;
     }
     

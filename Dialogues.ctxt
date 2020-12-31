@@ -1,7 +1,3 @@
 #BlueJ class context
 comment0.target=Dialogues
-comment1.params=
-comment1.target=java.lang.String\ getLine1()
-comment2.params=
-comment2.target=java.lang.String\ getLine2()
-numComments=3
+numComments=1

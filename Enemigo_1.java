@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.*;
 
 /**
  * Write a description of class Enemigo_1 here.
@@ -10,38 +11,157 @@ public  class Enemigo_1 extends Character
 {
     private int lives;
     private static int INITIAL_ADVANCE = 8;
-    private static int INITIAL_SPEED = 5;
-    private static int STAMINA_SPEED = 10;
+    private static int INITIAL_SPEED = 12;
+    private static int STAMINA_SPEED = 18;
     private static int INITIAL_LIVES = 1;
- 
-    public Enemigo_1(){
+    private  int contador=100;
+    private  int normal=0;
+
+    public Enemigo_1(int comogustes){
+        normal=comogustes;
         lives = INITIAL_LIVES;
         speed = INITIAL_SPEED;
         advance = INITIAL_ADVANCE;
         direction = CharacterDirection.DOWN;
-        name = "D";
+        name = "zombie";
+        spritesRight[0] = new GreenfootImage("./images/characters/zombie_derecha_2.png");
+        spritesRight[1] = new GreenfootImage("./images/characters/zombie_derecha_1.png");
+        spritesRight[2] = new GreenfootImage("./images/characters/zombie_derecha_2.png");
+        spritesRight[3] = new GreenfootImage("./images/characters/zombie_derecha_3.png");
 
-        dragonderecha = new GreenfootImage[3];
-        dragonderecha[0] = new GreenfootImage("./src/dragon_derecha_1.png");
-        dragonderecha[1] = new GreenfootImage("./src/dragon_derecha_2.png");
-        dragonderecha[2] = new GreenfootImage("./src/dragon_derecha_3.png");
+        spritesUp[0] = new GreenfootImage("./images/characters/zombie_arriba_2.png");
+        spritesUp[1] = new GreenfootImage("./images/characters/zombie_arriba_1.png");
+        spritesUp[2] = new GreenfootImage("./images/characters/zombie_arriba_2.png");
+        spritesUp[3] = new GreenfootImage("./images/characters/zombie_arriba_3.png");
 
-        dragonizquierda = new GreenfootImage[3];
-        dragonizquierda[0] = new GreenfootImage("./src/dragon_izquierda_1.png");
-        dragonizquierda[1] = new GreenfootImage("./src/dragon_izquierda_2.png");
-        dragonizquierda[2] = new GreenfootImage("./src/dragon_izquierda_3.png");
+        spritesDown[0] = new GreenfootImage("./images/characters/zombie_abajo_2.png");
+        spritesDown[1] = new GreenfootImage("./images/characters/zombie_abajo_1.png");
+        spritesDown[2] = new GreenfootImage("./images/characters/zombie_abajo_2.png");
+        spritesDown[3] = new GreenfootImage("./images/characters/zombie_abajo_3.png");
 
-        dragonarriba = new GreenfootImage[3];
-        dragonarriba[0] = new GreenfootImage("./src/dragon_arriba_1.png");
-        dragonarriba[1] = new GreenfootImage("./src/dragon_arriba_2.png");
-        dragonarriba[2] = new GreenfootImage("./src/dragon_arriba_3.png");
+        spritesLeft[0] = new GreenfootImage("./images/characters/zombie_izquierda_2.png");
+        spritesLeft[1] = new GreenfootImage("./images/characters/zombie_izquierda_1.png");
+        spritesLeft[2] = new GreenfootImage("./images/characters/zombie_izquierda_2.png");
+        spritesLeft[3] = new GreenfootImage("./images/characters/zombie_izquierda_3.png");
 
-        dragonabajo = new GreenfootImage[3];
-        dragonabajo[0] = new GreenfootImage("./src/dragon_abajo_1.png");
-        dragonabajo[1] = new GreenfootImage("./src/dragon_abajo_2.png");
-        dragonabajo[2] = new GreenfootImage("./src/dragon_abajo_3.png");
+        setOriginalPosition();
 
     }
+
+    public int getInitialLives() {
+        return INITIAL_LIVES;
+    }
+
+    public int getLives() {
+        return lives;
+    }
+
+    public void addLife(int cure) {
+        lives+=cure;
+        if(lives > INITIAL_LIVES)
+            lives = INITIAL_LIVES;
+    }
+
+    public void removeLife(int damage) {
+        lives -= damage;
+    }
+
+    public void act() {
+        try {
+            //checkKeyPressed();
+            //checkRunKey();
+            if(contador==0){
+                normal = Greenfoot.getRandomNumber(4-0);
+                contador=100;
+            }else{
+                contador--;
+            }
+            if(normal==0){
+                checkCollisions();
+                checkCollisionsEnemigo();
+                setDirection(CharacterDirection.RIGHT);
+                advance = 2;
+                characterMove();
+
+            }else if(normal==1){
+
+                checkCollisions();
+                setDirection(CharacterDirection.LEFT);
+                advance = 2;
+                characterMove();
+
+            }else if(normal==2){
+
+                checkCollisions();
+                setDirection(CharacterDirection.DOWN);
+                advance = 2;
+                characterMove();
+
+            }
+            else if(normal==3){
+                checkCollisions();
+                setDirection(CharacterDirection.UP);
+                advance = 2;
+                characterMove();
+
+            }
+
+        }
+
+        catch(ObjectCollisionException Ex) {
+            checkInteractions();
+            characterMove();
+        }
+        catch(WallCollisionException Ex) {
+            advance = 0;
+            characterMove();
+        }
+          catch(EnemigoCollisionException Ex) {
+            advance = 0;
+            characterMove();
+        }
+
+    }
+
+    public void checkInteractionsNoMoving(){
+        try {
+            checkCollisions();
+        } catch(ObjectCollisionException Ex) {
+            checkInteractions();
+            setDirection(CharacterDirection.DOWN);
+
+        } catch(WallCollisionException Ex){
+            setDirection(CharacterDirection.DOWN);
+
+        }
+    }
+
+    public void checkKeyPressed() throws NoKeyPressedException{
+        if(Greenfoot.isKeyDown(Keys.LEFT)) {
+            setDirection(CharacterDirection.LEFT);
+        }
+        else if(Greenfoot.isKeyDown(Keys.RIGHT)) {
+            setDirection(CharacterDirection.RIGHT);
+        }
+        else if(Greenfoot.isKeyDown(Keys.UP)) {
+            setDirection(CharacterDirection.UP);
+        }
+        else if(Greenfoot.isKeyDown(Keys.DOWN)) {
+            setDirection(CharacterDirection.DOWN);
+        }
+        else {
+            throw new NoKeyPressedException();
+        }
+    }
+
+    public void checkRunKey() {
+        if(Greenfoot.isKeyDown(Keys.RUN)) {
+            speed = STAMINA_SPEED;
+        } else {
+            speed = INITIAL_SPEED;
+        }
+    }
+
     public void checkInteractions(){
         try {
             collisionObject.isMovable();
@@ -51,60 +171,12 @@ public  class Enemigo_1 extends Character
         }
         catch(NoMovableObjectException Ex) {
             advance = 0;
-            if(Greenfoot.isKeyDown("x")) {
-            }
+
         }
         catch(ObjectCollisionException Ex) {
             advance = 0;
         }
+
     }
-    
-    /**
-     * Act - do whatever the Enemigo_1 wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act() 
-    {
 
-        int normal = Greenfoot.getRandomNumber(4-0);
-
-        if(normal==0){
-            
-            if(currentSprite < dragonarriba.length-1 ){
-                currentSprite++;
-            }else{
-                currentSprite=0;
-
-            }
-            setDirection(CharacterDirection.RIGHT);
-            
-        }else if(normal==1){
-            if(currentSprite < dragonabajo.length-1 ){
-                currentSprite++;
-            }else{
-                currentSprite=0;
-
-            }
-            setImage(dragonabajo[currentSprite]); 
-        }else if(normal==2){
-            if(currentSprite < dragonizquierda.length-1 ){
-                currentSprite++;
-            }else{
-                currentSprite=0;
-
-            }
-            setDirection(CharacterDirection.RIGHT);
-        }
-        else if(normal==3){
-            if(currentSprite < dragonderecha.length-1 ){
-                currentSprite++;
-            }else{
-                currentSprite=0;
-
-            }
-            setDirection(CharacterDirection.RIGHT);
-        }
-
-        // Add your action code here.
-    }    
 }

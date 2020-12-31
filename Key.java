@@ -2,16 +2,17 @@ import greenfoot.*;
 
 public class Key extends KeyObject
 {
-    private int number;
+    private String number;
     
-    public Key(int number) {
+    public Key(String number) {
         this.number = number;
-        name = "Llave de puerta";
-        DEFAULT_DESCRIPTION = "Una llave con el numero " + Integer.toString(number);
+        name = "LLAVE DE LA " + number;
+        DEFAULT_DESCRIPTION = "Una llave para abrir la " + number;
         setImage(new GreenfootImage("./images/objects/key.png"));
+        description = DEFAULT_DESCRIPTION;
     }
     
-    public int getNumber() {
+    public String getNumber() {
         return number;
     }
 }

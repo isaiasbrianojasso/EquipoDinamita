@@ -11,6 +11,7 @@ public class Player extends Character
     private List<KeyObject> inventory = new ArrayList<KeyObject>();
 
     public Player() {
+        
         lives = INITIAL_LIVES;
         speed = INITIAL_SPEED;
         advance = INITIAL_ADVANCE;
@@ -38,6 +39,32 @@ public class Player extends Character
         spritesLeft[3] = new GreenfootImage("./images/characters/protagonista_izquierda_3.png");
         
         setOriginalPosition();
+    }
+    
+    public int getInitialLives() {
+        return INITIAL_LIVES;
+    }
+    
+    public int getLives() {
+        return lives;
+    }
+    
+    public void addLife(int cure) {
+        lives+=cure;
+        if(lives > INITIAL_LIVES)
+            lives = INITIAL_LIVES;
+    }
+    
+    public void removeLife(int damage) {
+        lives -= damage;
+    }
+    
+    public void removeItem(int index) {
+        inventory.remove(index);
+    }
+    
+    public List<KeyObject> getInventory() {
+        return inventory;
     }
     
     public void act() {
@@ -72,16 +99,16 @@ public class Player extends Character
     }
     
     public void checkKeyPressed() throws NoKeyPressedException{
-        if(Greenfoot.isKeyDown("left")) {
+        if(Greenfoot.isKeyDown(Keys.LEFT)) {
             setDirection(CharacterDirection.LEFT);
         }
-        else if(Greenfoot.isKeyDown("right")) {
+        else if(Greenfoot.isKeyDown(Keys.RIGHT)) {
             setDirection(CharacterDirection.RIGHT);
         }
-        else if(Greenfoot.isKeyDown("up")) {
+        else if(Greenfoot.isKeyDown(Keys.UP)) {
             setDirection(CharacterDirection.UP);
         }
-        else if(Greenfoot.isKeyDown("down")) {
+        else if(Greenfoot.isKeyDown(Keys.DOWN)) {
             setDirection(CharacterDirection.DOWN);
         }
         else {
@@ -90,7 +117,7 @@ public class Player extends Character
     }
     
     public void checkRunKey() {
-        if(Greenfoot.isKeyDown("c")) {
+        if(Greenfoot.isKeyDown(Keys.RUN)) {
             speed = STAMINA_SPEED;
         } else {
             speed = INITIAL_SPEED;
@@ -106,13 +133,16 @@ public class Player extends Character
         }
         catch(NoMovableObjectException Ex) {
             advance = 0;
-            if(Greenfoot.isKeyDown("x")) {
+            if(Greenfoot.isKeyDown(Keys.CONFIRMATION)) {
                 checkDoor();
             }
         }
+        catch(ObjectCollisionException Ex) {
+            advance = 0;
+        }
     }
     
-    public void checkDoor() {
+    public void checkDoor() {                                                                                                                                                                                                                                                                                                                                               
         if(collisionObject instanceof Door) {
             ((Door)collisionObject).tryToOpen(inventory);
         } else {

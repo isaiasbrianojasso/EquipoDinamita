@@ -2,8 +2,6 @@ import greenfoot.*;
 
 public class Controls extends World
 {
-    private String lastKeyPressed;
-    
     public Controls()
     {   
         super(1024, 480, 1);
@@ -20,21 +18,10 @@ public class Controls extends World
         showText("ISRAEL FELIX HERNANDEZ", getWidth()/2, (getHeight())-50);
     }
     
-    public void act() 
+    public void act()
     {
-        lastKeyPressed = Greenfoot.getKey();
-        
-        if(lastKeyPressed != null)
-        {
-            validateKeyPressed();
-        }
-    }
-    
-    public void validateKeyPressed() {
-        switch(lastKeyPressed) {
-            case "escape":
-                Greenfoot.setWorld (new Menu());
-            break;
+        if(Greenfoot.isKeyDown(Keys.PAUSE)) {
+            Greenfoot.setWorld (new Menu());
         }
     }
 }

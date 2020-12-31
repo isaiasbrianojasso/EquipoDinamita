@@ -1,5 +1,15 @@
 #BlueJ class context
 comment0.target=Wall
-comment1.params=wallType
-comment1.target=Wall(int)
-numComments=2
+comment1.params=wallType\ wallSubtype
+comment1.target=Wall(int,\ int)
+comment2.params=subtype
+comment2.target=void\ cherryWall(int)
+comment3.params=subtype
+comment3.target=void\ bloodWall(int)
+comment4.params=subtype
+comment4.target=void\ brownieWall(int)
+comment5.params=subtype
+comment5.target=void\ fancyWall(int)
+comment6.params=subtype
+comment6.target=void\ rockWall(int)
+numComments=7
