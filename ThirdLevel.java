@@ -140,8 +140,12 @@ public class ThirdLevel extends Level
         getWorld().addObject(closetDoor,670,135); //Armario
         enemigos();
 
-    }
+        getWorld().addObject(bathroomDoor,350,135); //Baño
+        getWorld().addObject(new Chimenea_1(),475,120);//chimenea 
+        getWorld().addObject(new Maceta_1(),750,135);//maceta_1
+        getWorld().addObject(new Maceta_2(),750,380);//maceta_1
 
+    }
     public void enemigos(){
         getWorld().addObject(zombie,500,200);
         getWorld().addObject(zombie2,600,200);
@@ -174,6 +178,12 @@ public class ThirdLevel extends Level
         closetDoor.setLocked(true);
         getWorld().addObject(closetDoor,670,135); //Armario
         enemigos();
+        getWorld().addObject(new Mesa_1(),460,280);//mesa1
+        getWorld().addObject(new Mesa_2(),560,200);//mesa2
+        getWorld().addObject(new Mesa_3(),562,250);//mesa3
+        getWorld().addObject(new Mesa_2(),560,350);//mesa2
+        getWorld().addObject(new sillon_1(),480,170);//sillon
+        getWorld().addObject(new sillon_2(),400,170);//sillon
 
     }
 
@@ -186,6 +196,12 @@ public class ThirdLevel extends Level
         Door door2C = new Door("PUERTA 02",0,2);
         door2C.setDestination('c',350,148);
         getWorld().addObject(door2C,480,325); //Puerta 2C
+        getWorld().addObject(new Ventana(),475,170);//179
+        getWorld().addObject(new lavado(),600,200);//179
+        getWorld().addObject(new baño_espejo(),600,170);//179
+        getWorld().addObject(new taza(),620,300);//179
+        getWorld().addObject(new bañera(),419,190);//179
+
     }
 
     public void setRoomFour() {
