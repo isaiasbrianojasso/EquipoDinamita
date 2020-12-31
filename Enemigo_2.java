@@ -7,36 +7,36 @@ import java.util.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public  class Enemigo_1 extends Character
+public  class Enemigo_2 extends Character
 {
 
     private  int contador=100;
     private  int normal=0;
 
-    public Enemigo_1(int comogustes){
+    public Enemigo_2(int comogustes){
         normal=comogustes;
 
         direction = CharacterDirection.DOWN;
-        name = "zombie";
-        spritesRight[0] = new GreenfootImage("./images/characters/zombie_derecha_2.png");
-        spritesRight[1] = new GreenfootImage("./images/characters/zombie_derecha_1.png");
-        spritesRight[2] = new GreenfootImage("./images/characters/zombie_derecha_2.png");
-        spritesRight[3] = new GreenfootImage("./images/characters/zombie_derecha_3.png");
+        name = "fantasma";
+        spritesRight[0] = new GreenfootImage("./images/characters/fantasma_derecha_2.png");
+        spritesRight[1] = new GreenfootImage("./images/characters/fantasma_derecha_1.png");
+        spritesRight[2] = new GreenfootImage("./images/characters/fantasma_derecha_2.png");
+        spritesRight[3] = new GreenfootImage("./images/characters/fantasma_derecha_3.png");
 
-        spritesUp[0] = new GreenfootImage("./images/characters/zombie_arriba_2.png");
-        spritesUp[1] = new GreenfootImage("./images/characters/zombie_arriba_1.png");
-        spritesUp[2] = new GreenfootImage("./images/characters/zombie_arriba_2.png");
-        spritesUp[3] = new GreenfootImage("./images/characters/zombie_arriba_3.png");
+        spritesUp[0] = new GreenfootImage("./images/characters/fantasma_arriba_2.png");
+        spritesUp[1] = new GreenfootImage("./images/characters/fantasma_arriba_1.png");
+        spritesUp[2] = new GreenfootImage("./images/characters/fantasma_arriba_2.png");
+        spritesUp[3] = new GreenfootImage("./images/characters/fantasma_arriba_3.png");
 
-        spritesDown[0] = new GreenfootImage("./images/characters/zombie_abajo_2.png");
-        spritesDown[1] = new GreenfootImage("./images/characters/zombie_abajo_1.png");
-        spritesDown[2] = new GreenfootImage("./images/characters/zombie_abajo_2.png");
-        spritesDown[3] = new GreenfootImage("./images/characters/zombie_abajo_3.png");
+        spritesDown[0] = new GreenfootImage("./images/characters/fantasma_abajo_2.png");
+        spritesDown[1] = new GreenfootImage("./images/characters/fantasma_abajo_1.png");
+        spritesDown[2] = new GreenfootImage("./images/characters/fantasma_abajo_2.png");
+        spritesDown[3] = new GreenfootImage("./images/characters/fantasma_abajo_3.png");
 
-        spritesLeft[0] = new GreenfootImage("./images/characters/zombie_izquierda_2.png");
-        spritesLeft[1] = new GreenfootImage("./images/characters/zombie_izquierda_1.png");
-        spritesLeft[2] = new GreenfootImage("./images/characters/zombie_izquierda_2.png");
-        spritesLeft[3] = new GreenfootImage("./images/characters/zombie_izquierda_3.png");
+        spritesLeft[0] = new GreenfootImage("./images/characters/fantasma_izquierda_2.png");
+        spritesLeft[1] = new GreenfootImage("./images/characters/fantasma_izquierda_1.png");
+        spritesLeft[2] = new GreenfootImage("./images/characters/fantasma_izquierda_2.png");
+        spritesLeft[3] = new GreenfootImage("./images/characters/fantasma_izquierda_3.png");
 
         setOriginalPosition();
 
@@ -87,7 +87,7 @@ public  class Enemigo_1 extends Character
         catch(ObjectCollisionException Ex) {
 
             setDirection(CharacterDirection.DOWN);
-            checkInteractions();
+           // checkInteractions();
             characterMove();
 
         }

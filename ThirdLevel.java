@@ -5,6 +5,9 @@ public class ThirdLevel extends Level
     public Enemigo_1 zombie = new Enemigo_1(1);
     public Enemigo_1 zombie2 = new Enemigo_1(3);
     public Enemigo_1 zombie3 = new Enemigo_1(4);
+    public Enemigo_2 fantasma1 = new Enemigo_2(4);
+    public Enemigo_2 fantasma2 = new Enemigo_2(4);
+    public Enemigo_2 fantasma3 = new Enemigo_2(4);
 
     public ThirdLevel() {
         setImage(new GreenfootImage(1,1));
@@ -157,10 +160,18 @@ public class ThirdLevel extends Level
 
     }
 
+    public void enemigos2(){
+        getWorld().addObject(fantasma1,500,200);
+        getWorld().addObject(fantasma2,600,200);
+
+    }
+
     public void remueve(){
         getWorld().removeObject(zombie);
         getWorld().removeObject(zombie2);
         getWorld().removeObject(zombie3);
+        getWorld().removeObject(fantasma1);
+        getWorld().removeObject(fantasma2);
 
     }
 
@@ -181,7 +192,7 @@ public class ThirdLevel extends Level
         Door closetDoor = new Door("ARMARIO",0,0);
         closetDoor.setLocked(true);
         getWorld().addObject(closetDoor,670,135); //Armario
-        enemigos();
+        enemigos2();
         getWorld().addObject(new Mesa_1(),460,280);//mesa1
         getWorld().addObject(new Mesa_2(),560,200);//mesa2
         getWorld().addObject(new Mesa_3(),562,250);//mesa3
