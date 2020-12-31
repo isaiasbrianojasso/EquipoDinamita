@@ -62,29 +62,7 @@ public abstract class Character extends Actor
         }
     }
 
-    public void checkCollisionsEnemigo() throws EnemigoCollisionException{
 
-        enemigoObject = null;
-
-        switch(direction) {
-            case UP:
-            enemigoObject = (Enemigo_1)getOneObjectAtOffset(0,-5,Enemigo_1.class);
-            break;
-            case DOWN:
-            enemigoObject = (Enemigo_1)getOneObjectAtOffset(0,20,Enemigo_1.class);
-            break;
-            case LEFT:
-            enemigoObject = (Enemigo_1)getOneObjectAtOffset(-13,12,Enemigo_1.class);
-            break;
-            case RIGHT:
-            enemigoObject = (Enemigo_1)getOneObjectAtOffset(11,12,Enemigo_1.class);
-            break;
-        }
-
-        if(enemigoObject != null) {
-            throw new EnemigoCollisionException();
-        } 
-    }
 
     public void rightMove() {
 
@@ -165,24 +143,25 @@ public abstract class Character extends Actor
             collisionObject = (Forniture)getOneObjectAtOffset(0,-5,Forniture.class);
             wall = (Wall)getOneObjectAtOffset(0,-1,Wall.class);
             enemigoObject = (Enemigo_1)getOneObjectAtOffset(0,-1,Enemigo_1.class);
+           
             //colision
             break;
             case DOWN:
             collisionObject = (Forniture)getOneObjectAtOffset(0,20,Forniture.class);
             wall = (Wall)getOneObjectAtOffset(0,24,Wall.class);
-            enemigoObject = (Enemigo_1)getOneObjectAtOffset(0,-1,Enemigo_1.class);
+            enemigoObject = (Enemigo_1)getOneObjectAtOffset(0,24,Enemigo_1.class);
             //colision
             break;
             case LEFT:
             collisionObject = (Forniture)getOneObjectAtOffset(-13,12,Forniture.class);
             wall = (Wall)getOneObjectAtOffset(-15,12,Wall.class);
-            enemigoObject = (Enemigo_1)getOneObjectAtOffset(0,-1,Enemigo_1.class);//colision
+            enemigoObject = (Enemigo_1)getOneObjectAtOffset(-15,12,Enemigo_1.class);//colision
 
             break;
             case RIGHT:
             collisionObject = (Forniture)getOneObjectAtOffset(11,12,Forniture.class);
             wall = (Wall)getOneObjectAtOffset(12,12,Wall.class);
-            enemigoObject = (Enemigo_1)getOneObjectAtOffset(0,-1,Enemigo_1.class);//colision
+            enemigoObject = (Enemigo_1)getOneObjectAtOffset(12,12,Enemigo_1.class);//colision
 
             break;
         }
@@ -191,6 +170,32 @@ public abstract class Character extends Actor
             throw new ObjectCollisionException();
         } else if(wall != null) {
             throw new WallCollisionException();
+        }else if(enemigoObject != null) {
+           // Player.removeLife(2);
+            throw new WallCollisionException();
         }
+    }
+        public void checkCollisionsEnemigo() throws EnemigoCollisionException{
+
+        enemigoObject = null;
+
+        switch(direction) {
+            case UP:
+            enemigoObject = (Enemigo_1)getOneObjectAtOffset(0,-5,Enemigo_1.class);
+            break;
+            case DOWN:
+            enemigoObject = (Enemigo_1)getOneObjectAtOffset(0,20,Enemigo_1.class);
+            break;
+            case LEFT:
+            enemigoObject = (Enemigo_1)getOneObjectAtOffset(-13,12,Enemigo_1.class);
+            break;
+            case RIGHT:
+            enemigoObject = (Enemigo_1)getOneObjectAtOffset(11,12,Enemigo_1.class);
+            break;
+        }
+
+        if(enemigoObject != null) {
+            throw new EnemigoCollisionException();
+        } 
     }
 }

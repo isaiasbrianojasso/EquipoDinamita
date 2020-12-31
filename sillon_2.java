@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class sillon_2 extends Forniture
 {
    public sillon_2() {
-        movable = true;
+        movable = false;
         setImage(new GreenfootImage("./images/forniture/sillon_2.png"));
     
 

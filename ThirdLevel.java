@@ -48,7 +48,7 @@ public class ThirdLevel extends Level
         Door door9A = new Door("PUERTA 09",0,0);
         door9A.setLocked(true);
         getWorld().addObject(door9A,673,103);
-        Sounds.Piano();
+        Sounds.Piano();        
     }
 
     public void setHall() {
@@ -113,6 +113,9 @@ public class ThirdLevel extends Level
         doorStairs.setLocked(true);
         doorStairs.setDescription(Dialogues.LINE_STAIRS_BLOCKED);
         getWorld().addObject(doorStairs,30,240); //Escaleras
+        getWorld().addObject(new Maceta_1(),980,200);//179
+        getWorld().addObject(new Maceta_2(),956,210);//179
+
         Sounds.StopPiano();
 
     }
@@ -146,6 +149,7 @@ public class ThirdLevel extends Level
         getWorld().addObject(new Maceta_2(),750,380);//maceta_1
 
     }
+
     public void enemigos(){
         getWorld().addObject(zombie,500,200);
         getWorld().addObject(zombie2,600,200);

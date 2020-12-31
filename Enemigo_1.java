@@ -9,19 +9,13 @@ import java.util.*;
  */
 public  class Enemigo_1 extends Character
 {
-    private int lives;
-    private static int INITIAL_ADVANCE = 8;
-    private static int INITIAL_SPEED = 12;
-    private static int STAMINA_SPEED = 18;
-    private static int INITIAL_LIVES = 1;
+
     private  int contador=100;
     private  int normal=0;
 
     public Enemigo_1(int comogustes){
         normal=comogustes;
-        lives = INITIAL_LIVES;
-        speed = INITIAL_SPEED;
-        advance = INITIAL_ADVANCE;
+
         direction = CharacterDirection.DOWN;
         name = "zombie";
         spritesRight[0] = new GreenfootImage("./images/characters/zombie_derecha_2.png");
@@ -48,31 +42,13 @@ public  class Enemigo_1 extends Character
 
     }
 
-    public int getInitialLives() {
-        return INITIAL_LIVES;
-    }
-
-    public int getLives() {
-        return lives;
-    }
-
-    public void addLife(int cure) {
-        lives+=cure;
-        if(lives > INITIAL_LIVES)
-            lives = INITIAL_LIVES;
-    }
-
-    public void removeLife(int damage) {
-        lives -= damage;
-    }
-
     public void act() {
         try {
             //checkKeyPressed();
             //checkRunKey();
             if(contador==0){
                 normal = Greenfoot.getRandomNumber(4-0);
-                contador=100;
+                contador=50;
             }else{
                 contador--;
             }
@@ -80,21 +56,21 @@ public  class Enemigo_1 extends Character
                 checkCollisions();
                 checkCollisionsEnemigo();
                 setDirection(CharacterDirection.RIGHT);
-                advance = 2;
+                advance = 5;
                 characterMove();
 
             }else if(normal==1){
 
                 checkCollisions();
                 setDirection(CharacterDirection.LEFT);
-                advance = 2;
+                advance = 5;
                 characterMove();
 
             }else if(normal==2){
 
                 checkCollisions();
                 setDirection(CharacterDirection.DOWN);
-                advance = 2;
+                advance = 5;
                 characterMove();
 
             }
@@ -109,18 +85,26 @@ public  class Enemigo_1 extends Character
         }
 
         catch(ObjectCollisionException Ex) {
+
+            setDirection(CharacterDirection.DOWN);
             checkInteractions();
             characterMove();
+
         }
         catch(WallCollisionException Ex) {
-            advance = 0;
-            characterMove();
-        }
-          catch(EnemigoCollisionException Ex) {
-            advance = 0;
-            characterMove();
-        }
 
+            setDirection(CharacterDirection.DOWN);
+            advance = 4;
+            characterMove();
+
+        }
+        catch(EnemigoCollisionException Ex) {
+
+            setDirection(CharacterDirection.DOWN);
+            advance = 4;
+            characterMove();
+
+        }
     }
 
     public void checkInteractionsNoMoving(){
@@ -136,37 +120,12 @@ public  class Enemigo_1 extends Character
         }
     }
 
-    public void checkKeyPressed() throws NoKeyPressedException{
-        if(Greenfoot.isKeyDown(Keys.LEFT)) {
-            setDirection(CharacterDirection.LEFT);
-        }
-        else if(Greenfoot.isKeyDown(Keys.RIGHT)) {
-            setDirection(CharacterDirection.RIGHT);
-        }
-        else if(Greenfoot.isKeyDown(Keys.UP)) {
-            setDirection(CharacterDirection.UP);
-        }
-        else if(Greenfoot.isKeyDown(Keys.DOWN)) {
-            setDirection(CharacterDirection.DOWN);
-        }
-        else {
-            throw new NoKeyPressedException();
-        }
-    }
 
-    public void checkRunKey() {
-        if(Greenfoot.isKeyDown(Keys.RUN)) {
-            speed = STAMINA_SPEED;
-        } else {
-            speed = INITIAL_SPEED;
-        }
-    }
 
     public void checkInteractions(){
         try {
             collisionObject.isMovable();
             collisionObject.checkCollisions(direction);
-            advance = INITIAL_ADVANCE;
             collisionObject.movement(direction);
         }
         catch(NoMovableObjectException Ex) {
