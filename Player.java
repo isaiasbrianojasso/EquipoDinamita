@@ -39,6 +39,7 @@ public class Player extends Character
         spritesLeft[3] = new GreenfootImage("./images/characters/protagonista_izquierda_3.png");
         
         setOriginalPosition();
+        
     }
     
     public int getInitialLives() {
@@ -88,6 +89,7 @@ public class Player extends Character
             advance = 0;
             characterMove();
         }
+      
     }
     
     public void checkInteractionsNoMoving(){
@@ -139,7 +141,7 @@ public class Player extends Character
         }
         catch(ObjectCollisionException Ex) {
             advance = 0;
-        }
+        } 
     }
     
     public void checkDoor() {                                                                                                                                                                                                                                                                                                                                               

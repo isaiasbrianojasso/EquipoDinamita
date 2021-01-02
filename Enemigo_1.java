@@ -105,7 +105,8 @@ public  class Enemigo_1 extends Character
             characterMove();
 
         }
-      
+    
+
     }
 
     public void checkInteractionsNoMoving(){
@@ -120,7 +121,6 @@ public  class Enemigo_1 extends Character
 
         }
     }
-
 
 
     public void checkInteractions(){

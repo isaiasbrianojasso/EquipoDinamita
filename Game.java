@@ -4,6 +4,7 @@ public class Game extends World
 {
     public Player player = new Player();
     public Enemigo_1 zombie = new Enemigo_1(2);
+    public Enemigo_2 fantasma = new Enemigo_2(2);
 
     public HUD hud = new HUD(player);
     private Basement basement = new Basement();

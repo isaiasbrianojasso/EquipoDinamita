@@ -87,7 +87,7 @@ public  class Enemigo_2 extends Character
         catch(ObjectCollisionException Ex) {
 
             setDirection(CharacterDirection.DOWN);
-           // checkInteractions();
+            // checkInteractions();
             characterMove();
 
         }
@@ -105,7 +105,7 @@ public  class Enemigo_2 extends Character
             characterMove();
 
         }
-      
+        
     }
 
     public void checkInteractionsNoMoving(){
@@ -118,10 +118,8 @@ public  class Enemigo_2 extends Character
         } catch(WallCollisionException Ex){
             setDirection(CharacterDirection.DOWN);
 
-        }
+        }   
     }
-
-
 
     public void checkInteractions(){
         try {
