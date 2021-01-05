@@ -17,9 +17,10 @@ public class Basement extends Level
             isBattleStarted = true;
             ((Game)getWorld()).hud.setBossLives();
             getWorld().addObject(boss,512,150);
+            boss.startBattle();
         }
         
-        if(boss.getActualLives() == 0 && !bossIsDefeated) {
+        if(boss.getActualLives() == 0 || bossIsDefeated) {
             bossIsDefeated = true;
             doorEA.setLocked(false);
             doorEA.setDestination('n',783,240);
@@ -34,6 +35,9 @@ public class Basement extends Level
         doorEA.setLocked(true);
         getWorld().addObject(doorEA,898,240);
         
-        ((Game)getWorld()).hud.initializeBossLives(boss.getLives());
+        if(!bossIsDefeated) {
+            ((Game)getWorld()).hud.initializeBossLives(boss.getLives());
+            getWorld().addObject(boss,512,150);
+        }
     }
 }

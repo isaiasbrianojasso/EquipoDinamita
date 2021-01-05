@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Illumination
+comment1.params=
+comment1.target=Illumination()
+comment2.params=
+comment2.target=void\ act()
+comment3.params=darkRoom
+comment3.target=void\ setDarkRoom(boolean)
+comment4.params=
+comment4.target=void\ changeFlashlightStatus()
+comment5.params=
+comment5.target=void\ setCharacterLight()
+numComments=6

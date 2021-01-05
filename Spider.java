@@ -16,7 +16,7 @@ public class Spider extends Actor
     private boolean battleIsStarted = false;
     
     private int DAMAGE = 2;
-    private static int TOTAL_LIVES = 6;
+    private static int TOTAL_LIVES = 2;
     private static int MOVEMENT = 15;
     private int lives = TOTAL_LIVES;
     
@@ -28,7 +28,7 @@ public class Spider extends Actor
     private int limitTimeToAttack = Greenfoot.getRandomNumber(80)+40;
     private int limitTimeVulnerable = 150;
     private int limitTimeUntilPlayerIsHittedAgain = 100;
-    private int limitNumberOfAttacks = 5;
+    private int limitNumberOfAttacks = 2;
     
     private int spritesIndex = 4;
     private int movementCounter = 0;
@@ -75,9 +75,7 @@ public class Spider extends Actor
                 }
             }
             
-        } else if(!battleIsStarted){
-            startBattle();
-        } else {
+        } else if(lives == 0){
             finishBattle();
         }
     }

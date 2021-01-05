@@ -148,8 +148,12 @@ public class Inventory extends Actor
     }
     
     public void useItem(int index) {
-        if(temporalInventory.get(index).getClass() == Cure.class) {
+        if(temporalInventory.get(index) instanceof Cure) {
             cure(index);
+        }
+        else if(temporalInventory.get(index) instanceof Flashlight) {
+            ((Game)getWorld()).illumination.changeFlashlightStatus();
+            ((Game)getWorld()).illumination.setCharacterLight();
         }
         else {
             getWorld().addObject(textbox,getWorld().getWidth()/2,400);

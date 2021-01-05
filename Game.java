@@ -4,6 +4,7 @@ public class Game extends World
 {
     public Player player = new Player();
     public HUD hud = new HUD(player);
+    public Illumination illumination = new Illumination();
     private Basement basement = new Basement();
     private FirstLevel firstLevel = new FirstLevel();
     private SecondLevel secondLevel = new SecondLevel();
@@ -14,7 +15,7 @@ public class Game extends World
     public Game()
     {
         super(1024, 480, 1);
-        setActOrder(Floor.class,Wall.class,Forniture.class,Character.class,Spider.class,Inventory.class,Pause.class,SelectLight.class,KeyObject.class,TextBox.class,HUD.class);
+        setActOrder(Floor.class,Wall.class,Forniture.class,Character.class,Spider.class,Illumination.class,Inventory.class,Pause.class,SelectLight.class,KeyObject.class,TextBox.class,HUD.class);
         prepare();
         act();
     }
@@ -32,6 +33,7 @@ public class Game extends World
         addObject(secondLevel,0,0);
         addObject(thirdLevel,0,0);
         addObject(player,getWidth()/2,getHeight()/2);
+        addObject(illumination,getWidth()/2,getHeight()/2);
 
         thirdLevel.setHall();
         hud.setHud();
@@ -53,6 +55,7 @@ public class Game extends World
         switch(destinationRoom) {
             case 'a':
                 thirdLevel.setHall();
+                illumination.setDarkRoom(false);
                 hud.setRoomName(thirdLevel.getRoomName());
             break;
             case 'b':
@@ -61,6 +64,7 @@ public class Game extends World
             break;
             case 'c':
                 thirdLevel.setRoomTwo();
+                illumination.setDarkRoom(true);
                 hud.setRoomName(thirdLevel.getRoomName());
             break;
             case 'd':
@@ -81,10 +85,12 @@ public class Game extends World
             break;
             case 'h':
                 thirdLevel.setRoomTwelve();
+                illumination.setDarkRoom(true);
                 hud.setRoomName(thirdLevel.getRoomName());
             break;
             case 'i':
                 thirdLevel.setBathroomTwo();
+                illumination.setDarkRoom(true);
                 hud.setRoomName(thirdLevel.getRoomName());
             break;
             case 'j':
@@ -97,6 +103,7 @@ public class Game extends World
             break;
             case 'l':
                 thirdLevel.setClosetTwelve();
+                illumination.setDarkRoom(true);
                 hud.setRoomName(thirdLevel.getRoomName());
             break;
             
@@ -106,10 +113,12 @@ public class Game extends World
             break;
             case 'n':
                 firstLevel.setEastHall();
+                illumination.setDarkRoom(false);
                 hud.setRoomName(firstLevel.getRoomName());
             break;
             case 'o':
                 firstLevel.setWestHall();
+                illumination.setDarkRoom(false);
                 hud.setRoomName(firstLevel.getRoomName());
             break;
             case 'p':
@@ -118,6 +127,7 @@ public class Game extends World
             break;
             case 'q':
                 firstLevel.setKitchen();
+                illumination.setDarkRoom(true);
                 hud.setRoomName(firstLevel.getRoomName());
             break;
             case 'r':
@@ -126,12 +136,14 @@ public class Game extends World
             break;
             case 's':
                 addObject(basement,0,0);
+                illumination.setDarkRoom(true);
                 player.setDirection(CharacterDirection.LEFT);
                 player.setOriginalPosition();
                 basement.setBasement();
                 hud.setRoomName(basement.getRoomName());
             break;
         }
+        illumination.setCharacterLight();
         player.setLocation(destinationX,destinationY);
     }
     
