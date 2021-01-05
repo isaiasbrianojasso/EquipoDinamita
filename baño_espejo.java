@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class baño_espejo extends Forniture
 {
-     public baño_espejo() {
+    public baño_espejo() {
         movable = false;
         setImage(new GreenfootImage("./images/forniture/baño_espejo.png"));
     }     
