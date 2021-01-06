@@ -15,7 +15,7 @@ public class Game extends World
     public Game()
     {
         super(1024, 480, 1);
-        setActOrder(Floor.class,Wall.class,Forniture.class,Character.class,Spider.class,Illumination.class,Inventory.class,Pause.class,SelectLight.class,KeyObject.class,TextBox.class,HUD.class);
+        setActOrder(Floor.class,Wall.class,Forniture.class,Character.class,LittleSpider.class,BossSpider.class,Illumination.class,Inventory.class,Pause.class,SelectLight.class,KeyObject.class,TextBox.class,HUD.class);
         prepare();
         act();
     }
@@ -151,7 +151,7 @@ public class Game extends World
         removeObjects(getObjects(Forniture.class));
         removeObjects(getObjects(Floor.class));
         removeObjects(getObjects(Wall.class));
-        removeObjects(getObjects(Spider.class));
+        removeObjects(getObjects(BossSpider.class));
     }
     
     public void showInventory() {
