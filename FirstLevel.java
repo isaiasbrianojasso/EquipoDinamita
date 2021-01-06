@@ -20,11 +20,11 @@ public class FirstLevel extends Level
     }
 
     public void setLobby() {
-        remueve();
-
+        remueve(); 
         zombie1=new Enemigo(1,2);
         zombie2=new Enemigo(2,2);
         zombie3=new Enemigo(2,2);
+
         roomName = "SALON PRINCIPAL";
 
         setRoom(159,53,3,1);

@@ -18,6 +18,8 @@ public class Enemigo extends Character
         switch(opcion){
             case 1:
             name = "zombie";
+                   Sounds.zombie_fondo();  
+
             spritesRight[0] = new GreenfootImage("./images/characters/zombie_derecha_2.png");
             spritesRight[1] = new GreenfootImage("./images/characters/zombie_derecha_1.png");
             spritesRight[2] = new GreenfootImage("./images/characters/zombie_derecha_2.png");
@@ -39,6 +41,7 @@ public class Enemigo extends Character
             break;
 
             case 2:
+                               Sounds.fantasma_lamento();  
 
             name = "fantasma";
             spritesRight[0] = new GreenfootImage("./images/characters/fantasma_derecha_2.png");
@@ -66,6 +69,8 @@ public class Enemigo extends Character
 
             case 3:
       name = "zombie2";
+                         Sounds.zombie_fondo();  
+
             spritesRight[0] = new GreenfootImage("./images/characters/zombie2_derecha_2.png");
             spritesRight[1] = new GreenfootImage("./images/characters/zombie2_derecha_1.png");
             spritesRight[2] = new GreenfootImage("./images/characters/zombie2_derecha_2.png");
@@ -86,6 +91,8 @@ public class Enemigo extends Character
             break;
            case 4:
                  name = "zombie3";
+                                    Sounds.zombie_fondo();  
+
             spritesRight[0] = new GreenfootImage("./images/characters/zombie3_derecha_2.png");
             spritesRight[1] = new GreenfootImage("./images/characters/zombie3_derecha_1.png");
             spritesRight[2] = new GreenfootImage("./images/characters/zombie3_derecha_2.png");
@@ -176,6 +183,8 @@ public class Enemigo extends Character
                 ((Game)getWorld()).player.removeLife(1);
                 ((Game)getWorld()).hud.updateLives(((Game)getWorld()).player.getLives());
                 ((Game)getWorld()).player.setCoordenadas(getX(),getY()-80);
+                 Sounds.zombie_mordida();        
+
             }else{
                 //gameover
 

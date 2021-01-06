@@ -11,6 +11,7 @@ public class ThirdLevel extends Level
 
     public ThirdLevel() {
         setImage(new GreenfootImage(1,1));
+        Sounds.fondo();        
 
         Door door1A = new Door("PUERTA 01",0,0);
         door1A.setDestination('b',512,365);
@@ -41,6 +42,7 @@ public class ThirdLevel extends Level
 
     public void setLibrary() {
         remueve();
+        Sounds.Stopfondo();        
 
         roomName = "BIBLIOTECA";
 
@@ -59,6 +61,9 @@ public class ThirdLevel extends Level
     public void setHall() {
         remueve();
         roomName = "PASILLO 3ER PISO";
+        Sounds.fondo();        
+
+        Sounds.StopPiano();        
 
         setRoom(63,183,0,0);
 
@@ -129,6 +134,8 @@ public class ThirdLevel extends Level
         zombie1=new Enemigo(1,2);
         zombie2=new Enemigo(3,2);
         zombie3=new Enemigo(4,2);
+        Sounds.zombie_fondo();        
+        Sounds.zombie_grito();        
 
         roomName = "HABITACION 01";
 

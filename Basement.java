@@ -32,6 +32,8 @@ public class Basement extends Level
 
         roomName = "SOTANO";
         remueve();
+        Sounds.Stopfondo();        
+        Sounds.spider_background();        
 
         zombie1=new Enemigo(1,2);
         zombie2=new Enemigo(2,2);
