@@ -65,8 +65,45 @@ public class Enemigo extends Character
             break;
 
             case 3:
-
+      name = "zombie2";
+            spritesRight[0] = new GreenfootImage("./images/characters/zombie2_derecha_2.png");
+            spritesRight[1] = new GreenfootImage("./images/characters/zombie2_derecha_1.png");
+            spritesRight[2] = new GreenfootImage("./images/characters/zombie2_derecha_2.png");
+            spritesRight[3] = new GreenfootImage("./images/characters/zombie2_derecha_3.png");
+            spritesUp[0] = new GreenfootImage("./images/characters/zombie2_arriba_2.png");
+            spritesUp[1] = new GreenfootImage("./images/characters/zombie2_arriba_1.png");
+            spritesUp[2] = new GreenfootImage("./images/characters/zombie2_arriba_2.png");
+            spritesUp[3] = new GreenfootImage("./images/characters/zombie2_arriba_3.png");
+            spritesDown[0] = new GreenfootImage("./images/characters/zombie2_abajo_2.png");
+            spritesDown[1] = new GreenfootImage("./images/characters/zombie2_abajo_1.png");
+            spritesDown[2] = new GreenfootImage("./images/characters/zombie2_abajo_2.png");
+            spritesDown[3] = new GreenfootImage("./images/characters/zombie2_abajo_3.png");
+            spritesLeft[0] = new GreenfootImage("./images/characters/zombie2_izquierda_2.png");
+            spritesLeft[1] = new GreenfootImage("./images/characters/zombie2_izquierda_1.png");
+            spritesLeft[2] = new GreenfootImage("./images/characters/zombie2_izquierda_2.png");
+            spritesLeft[3] = new GreenfootImage("./images/characters/zombie2_izquierda_3.png");
+            setOriginalPosition();
             break;
+           case 4:
+                 name = "zombie3";
+            spritesRight[0] = new GreenfootImage("./images/characters/zombie3_derecha_2.png");
+            spritesRight[1] = new GreenfootImage("./images/characters/zombie3_derecha_1.png");
+            spritesRight[2] = new GreenfootImage("./images/characters/zombie3_derecha_2.png");
+            spritesRight[3] = new GreenfootImage("./images/characters/zombie3_derecha_3.png");
+            spritesUp[0] = new GreenfootImage("./images/characters/zombie3_arriba_2.png");
+            spritesUp[1] = new GreenfootImage("./images/characters/zombie3_arriba_1.png");
+            spritesUp[2] = new GreenfootImage("./images/characters/zombie3_arriba_2.png");
+            spritesUp[3] = new GreenfootImage("./images/characters/zombie3_arriba_3.png");
+            spritesDown[0] = new GreenfootImage("./images/characters/zombie3_abajo_2.png");
+            spritesDown[1] = new GreenfootImage("./images/characters/zombie3_abajo_1.png");
+            spritesDown[2] = new GreenfootImage("./images/characters/zombie3_abajo_2.png");
+            spritesDown[3] = new GreenfootImage("./images/characters/zombie3_abajo_3.png");
+            spritesLeft[0] = new GreenfootImage("./images/characters/zombie3_izquierda_2.png");
+            spritesLeft[1] = new GreenfootImage("./images/characters/zombie3_izquierda_1.png");
+            spritesLeft[2] = new GreenfootImage("./images/characters/zombie3_izquierda_2.png");
+            spritesLeft[3] = new GreenfootImage("./images/characters/zombie3_izquierda_3.png");
+            setOriginalPosition();
+           break;
 
         }
     }

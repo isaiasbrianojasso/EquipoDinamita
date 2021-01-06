@@ -40,6 +40,7 @@ public class ThirdLevel extends Level
     }
 
     public void setLibrary() {
+        remueve();
 
         roomName = "BIBLIOTECA";
 
@@ -123,10 +124,11 @@ public class ThirdLevel extends Level
     }
 
     public void setRoomOne() {
+        remueve();
 
         zombie1=new Enemigo(1,2);
-        zombie2=new Enemigo(1,2);
-        zombie3=new Enemigo(1,2);
+        zombie2=new Enemigo(3,2);
+        zombie3=new Enemigo(4,2);
 
         roomName = "HABITACION 01";
 
@@ -152,6 +154,9 @@ public class ThirdLevel extends Level
         getWorld().addObject(zombie1,500,200);//maceta2
         getWorld().addObject(zombie2,600,200);//maceta2
         getWorld().addObject(zombie3,400,200);//maceta2
+        //Sounds.Zombiesound();        
+        // Sounds.Zombiesound();        
+        //  Sounds.Zombiesound();        
 
     }
 
@@ -208,7 +213,11 @@ public class ThirdLevel extends Level
     }
 
     public void setRoomFour() {
+        remueve();
 
+        zombie1=new Enemigo(1,2);
+        zombie2=new Enemigo(3,2);
+        zombie3=new Enemigo(4,2);
         roomName = "HABITACION 04";
 
         setRoom(287,118,1,1);
@@ -224,10 +233,15 @@ public class ThirdLevel extends Level
         Door closetDoor = new Door("ARMARIO",0,0);
         closetDoor.setLocked(true);
         getWorld().addObject(closetDoor,670,135); //Armario
+        getWorld().addObject(zombie3,400,200);//maceta2
     }
 
     public void setRoomSeven() {
+        remueve();
 
+        zombie1=new Enemigo(1,2);
+        zombie2=new Enemigo(3,2);
+        zombie3=new Enemigo(4,2);
         roomName = "HABITACION 07";
 
         setRoom(287,118,1,1);
@@ -243,9 +257,12 @@ public class ThirdLevel extends Level
         Door closetDoor = new Door("ARMARIO",0,2);
         closetDoor.setDestination('k',544,200);
         getWorld().addObject(closetDoor,670,390); //Armario
+        getWorld().addObject(zombie2,400,200);//maceta2
+        getWorld().addObject(zombie2,400,200);//maceta2
     }
 
     public void setBathroomSeven() {
+        remueve();
 
         roomName = "BAÑO 07";
 
@@ -257,7 +274,11 @@ public class ThirdLevel extends Level
     }
 
     public void setClosetSeven() {
+        remueve();
 
+        zombie1=new Enemigo(1,2);
+        zombie2=new Enemigo(3,2);
+        zombie3=new Enemigo(4,2);
         roomName = "ARMARIO 07";
 
         setRoom(415,180,2,2);
@@ -265,9 +286,11 @@ public class ThirdLevel extends Level
         Door door7D = new Door("PUERTA 07",0,0);
         door7D.setDestination('e',670,360);
         getWorld().addObject(door7D,544,195); //Habitación 7D
+        getWorld().addObject(zombie1,400,200);//maceta2
     }
 
     public void setRoomTen() {
+        remueve();
 
         roomName = "HABITACION 10";
 
@@ -287,7 +310,11 @@ public class ThirdLevel extends Level
     }
 
     public void setRoomTwelve() {
+        remueve();
 
+        zombie1=new Enemigo(1,2);
+        zombie2=new Enemigo(3,2);
+        zombie3=new Enemigo(4,2);
         roomName = "HABITACION 12";
 
         setRoom(287,118,3,3);
@@ -303,10 +330,17 @@ public class ThirdLevel extends Level
         Door closetDoor = new Door("ARMARIO",0,2);
         closetDoor.setDestination('l',544,200);
         getWorld().addObject(closetDoor,670,390); //Armario
+        getWorld().addObject(zombie1,400,200);//maceta2
+        getWorld().addObject(zombie1,400,200);//maceta2
+        getWorld().addObject(zombie1,400,200);//maceta2
     }
 
     public void setClosetTwelve() {
+        remueve();
 
+        zombie1=new Enemigo(1,2);
+        zombie2=new Enemigo(3,2);
+        zombie3=new Enemigo(4,2);
         roomName = "ARMARIO 12";
 
         setRoom(415,180,3,3);
@@ -314,6 +348,10 @@ public class ThirdLevel extends Level
         Door door12C = new Door("PUERTA 12",0,0);
         door12C.setDestination('h',670,360);
         getWorld().addObject(door12C,544,195); //Habitación 12C
+        getWorld().addObject(zombie1,400,200);//maceta2
+        getWorld().addObject(zombie1,400,200);//maceta2
+        getWorld().addObject(zombie2,400,200);//maceta2
+        getWorld().addObject(zombie2,400,200);//maceta2
     }
 
     public void remueve(){
