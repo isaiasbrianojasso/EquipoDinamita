@@ -148,7 +148,7 @@ public class Inventory extends Actor
     }
     
     public void useItem(int index) {
-        if(temporalInventory.get(index).getClass() == Cure.class) {
+        if(temporalInventory.get(index) instanceof Cure) {
             cure(index);
         }
         else {
