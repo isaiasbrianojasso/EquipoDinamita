@@ -2,12 +2,15 @@ import greenfoot.*;
 
 public class TextBox extends Actor
 {
+    private GreenfootImage TEXT_BOX = new GreenfootImage("./images/hud/text_box.png");
+    private GreenfootImage ROOM_NAME_BOX = new GreenfootImage("./images/hud/room_name_box.png");
+    
     public TextBox() {
-        setImage(new GreenfootImage("./images/hud/text_box.png"));
+        setImage(TEXT_BOX);
     }
     
     public void displayRoomName(String name) {
-        setImage(new GreenfootImage("./images/hud/room_name_box.png"));
+        setImage(ROOM_NAME_BOX);
         showText("",name);
     }
     
@@ -18,7 +21,7 @@ public class TextBox extends Actor
     }
     
     public void receiveObject(KeyObject object) {
-        showText("   ",object.getName() + " recibido!");
+        showText("   ",object.getName() + " RECIBIDO!");
         waitToPressX();
         eraseText();
     }

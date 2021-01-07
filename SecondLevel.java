@@ -11,11 +11,11 @@ public class SecondLevel extends Level
         
         roomName = "HABITACION ???";
         
-        setRoom(1,1);
+        setRoom(287,118,1,1);
         
         Door door = new Door("PUERTA",0,1);
         door.setDestination('o',237,240);
-        getWorld().addObject(door,766,240); //Puerta
+        getWorld().addObject(door,766,240);
     }
     
 }

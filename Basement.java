@@ -11,7 +11,7 @@ public class Basement extends Level
         
         roomName = "SOTANO";
         
-        setBigLobby(4,4);
+        setRoom(159,53,4,4);
         
         Door doorEA = new Door("Sala este",0,1);
         doorEA.setDestination('n',783,240);
