@@ -2,7 +2,7 @@ import greenfoot.*;
 
 public class BandAid extends KeyObject
 {
-    private int LIFE_TO_RECOVER = 1;
+    private static int LIFE_TO_RECOVER = 1;
     
     public BandAid() {
         name = "Bandita";

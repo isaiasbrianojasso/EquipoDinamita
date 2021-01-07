@@ -3,7 +3,7 @@ import greenfoot.*;
 public abstract class Character extends Actor
 {
     private final int DELAY_LIMIT = 20;
-    Forniture collisionObject;
+    protected Forniture collisionObject;
     protected int currentSprite = 0;
     protected int delay = 0;
     protected int speed;
@@ -13,10 +13,10 @@ public abstract class Character extends Actor
 
     protected CharacterDirection direction;
 
-    public GreenfootImage []spritesRight = new GreenfootImage[4];
-    public GreenfootImage []spritesUp = new GreenfootImage[4];
-    public GreenfootImage []spritesLeft = new GreenfootImage[4];
-    public GreenfootImage []spritesDown = new GreenfootImage[4];
+    protected GreenfootImage []spritesRight = new GreenfootImage[4];
+    protected GreenfootImage []spritesUp = new GreenfootImage[4];
+    protected GreenfootImage []spritesLeft = new GreenfootImage[4];
+    protected GreenfootImage []spritesDown = new GreenfootImage[4];
     
     public Character() {
         setImage(spritesDown[0]);
@@ -135,16 +135,16 @@ public abstract class Character extends Actor
                 wall = (Wall)getOneObjectAtOffset(0,-1,Wall.class);
             break;
             case DOWN:
-                collisionObject = (Forniture)getOneObjectAtOffset(0,18,Forniture.class);
-                wall = (Wall)getOneObjectAtOffset(0,25,Wall.class);
+                collisionObject = (Forniture)getOneObjectAtOffset(0,20,Forniture.class);
+                wall = (Wall)getOneObjectAtOffset(0,24,Wall.class);
             break;
             case LEFT:
                 collisionObject = (Forniture)getOneObjectAtOffset(-13,12,Forniture.class);
-                wall = (Wall)getOneObjectAtOffset(-17,12,Wall.class);
+                wall = (Wall)getOneObjectAtOffset(-15,12,Wall.class);
             break;
             case RIGHT:
-                collisionObject = (Forniture)getOneObjectAtOffset(13,12,Forniture.class);
-                wall = (Wall)getOneObjectAtOffset(17,12,Wall.class);
+                collisionObject = (Forniture)getOneObjectAtOffset(11,12,Forniture.class);
+                wall = (Wall)getOneObjectAtOffset(12,12,Wall.class);
             break;
         }
         

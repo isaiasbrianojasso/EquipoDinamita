@@ -110,6 +110,9 @@ public class Player extends Character
                 checkDoor();
             }
         }
+        catch(ObjectCollisionException Ex) {
+            advance = 0;
+        }
     }
     
     public void checkDoor() {
