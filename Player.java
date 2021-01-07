@@ -124,7 +124,7 @@ public class Player extends Character
     }
     
     public void checkDoor() {
-        if(collisionObject.getClass() == Door.class) {
+        if(collisionObject instanceof Door) {
             ((Door)collisionObject).tryToOpen(inventory);
         } else {
             collisionObject.receiveObject();

@@ -42,14 +42,10 @@ public class Door extends Forniture
     }
     
     public void closedDoorType(){
-        switch(doorType) {
-            case 0:
-                normalDoor();
-            break;
-            case 1:
-                setImage(new GreenfootImage("./images/forniture/elevator0.png"));
-            break;
-        }
+        if (doorType == 0)
+            normalDoor();
+        else 
+            setImage(new GreenfootImage("./images/forniture/elevator0.png"));
     }
     
     public void setLocked(boolean locked) {

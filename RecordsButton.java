@@ -6,7 +6,7 @@ public class RecordsButton extends Button
     {
         getWorld().showText("Records",this.getX(),this.getY());
         validateImageChange();
-        if(buttonActive == true && buttonPressed == true) {
+        if(buttonActive && buttonPressed) {
             Greenfoot.setWorld (new Records());
         }
     }    
