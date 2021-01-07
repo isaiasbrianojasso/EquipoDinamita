@@ -87,31 +87,31 @@ public class ObjetoInanimado extends Forniture
             //aqui me quede
 
             case 20:
-            setImage(new GreenfootImage("./images/forniture/maceta_2.png"));
+            setImage(new GreenfootImage("./images/forniture/libros_1.png"));
             break;  
             case 21:
 
-            setImage(new GreenfootImage("./images/forniture/maceta_2.png"));
+            setImage(new GreenfootImage("./images/forniture/libros_2.png"));
             break;
+            
             case 22:
-
-            setImage(new GreenfootImage("./images/forniture/maceta_2.png"));
+            setImage(new GreenfootImage("./images/forniture/panel_1.png"));
             break;
             case 23:
 
-            setImage(new GreenfootImage("./images/forniture/maceta_2.png"));
+            setImage(new GreenfootImage("./images/forniture/panel_2.png"));
             break;
             case 24:
 
-            setImage(new GreenfootImage("./images/forniture/maceta_2.png"));
+            setImage(new GreenfootImage("./images/forniture/panel_3.png"));
             break;
             case 25:
 
-            setImage(new GreenfootImage("./images/forniture/maceta_2.png"));
+            setImage(new GreenfootImage("./images/forniture/cuadro_1.png"));
             break;  
             case 26:
 
-            setImage(new GreenfootImage("./images/forniture/maceta_2.png"));
+            setImage(new GreenfootImage("./images/forniture/cuadro_2.png"));
             break;
             case 27:
 

@@ -50,6 +50,18 @@ public class ThirdLevel extends Level
 
         getWorld().addObject(keyForniture.get(4),500,200);
         getWorld().addObject(keyForniture.get(1),352,103); //Puerta 8A
+        getWorld().addObject(new ObjetoInanimado(false,23),300,103);//maceta1
+        getWorld().addObject(new ObjetoInanimado(false,24),700,103);//maceta1
+
+        getWorld().addObject(new ObjetoInanimado(true,20),510,103);//maceta1
+        getWorld().addObject(new ObjetoInanimado(true,20),580,103);//maceta1
+        getWorld().addObject(new ObjetoInanimado(true,20),440,103);//maceta1
+        getWorld().addObject(new ObjetoInanimado(true,20),673,200);//maceta1
+        getWorld().addObject(new ObjetoInanimado(true,20),600,200);//maceta1
+        getWorld().addObject(new ObjetoInanimado(true,20),280,200);//maceta1
+        getWorld().addObject(new ObjetoInanimado(true,20),350,200);//maceta1
+        getWorld().addObject(new ObjetoInanimado(false,21),550,340);//maceta1
+        getWorld().addObject(new ObjetoInanimado(true,15),750,200);//maceta1
 
         Door door9A = new Door("PUERTA 09",0,0);
         door9A.setLocked(true);
@@ -158,9 +170,15 @@ public class ThirdLevel extends Level
         getWorld().addObject(closetDoor,670,135); //Armario
         getWorld().addObject(new ObjetoInanimado(false,3),750,135);//maceta1
         getWorld().addObject(new ObjetoInanimado(false,4),750,380);//maceta2
+        getWorld().addObject(new ObjetoInanimado(false,25),400,115);//cuadro
+        getWorld().addObject(new ObjetoInanimado(false,15),480,170);//sillon_1
+        getWorld().addObject(new ObjetoInanimado(false,16),400,170);//sillon_2
+        getWorld().addObject(new ObjetoInanimado(true,5),460,280);//Mesa_1
+
         getWorld().addObject(zombie1,500,200);//maceta2
         getWorld().addObject(zombie2,600,200);//maceta2
         getWorld().addObject(zombie3,400,200);//maceta2
+
         //Sounds.Zombiesound();        
         // Sounds.Zombiesound();        
         //  Sounds.Zombiesound();        
