@@ -8,6 +8,15 @@ public abstract class Level extends Actor
     private int i;
     private int j;
     
+    protected Enemigo Phantom1A = new Enemigo(0);
+    protected Enemigo Phantom1B = new Enemigo(0);
+    protected Enemigo Zombie1A = new Enemigo(1);
+    protected Enemigo Zombie1B = new Enemigo(1);
+    protected Enemigo Zombie2A = new Enemigo(2);
+    protected Enemigo Zombie2B = new Enemigo(2);
+    protected Enemigo Zombie3A = new Enemigo(3);
+    protected Enemigo Zombie3B = new Enemigo(3);
+    
     public String getRoomName() {
         return roomName;
     }

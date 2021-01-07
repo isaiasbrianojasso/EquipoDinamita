@@ -7,11 +7,11 @@ public class Player extends Character
     private static int INITIAL_ADVANCE = 8;
     private static int INITIAL_SPEED = 12;
     private static int STAMINA_SPEED = 18;
-    private static int INITIAL_LIVES = 6;
+    private static int INITIAL_LIVES = 8;
     private List<KeyObject> inventory = new ArrayList<KeyObject>();
 
     public Player() {
-
+        
         lives = INITIAL_LIVES;
         speed = INITIAL_SPEED;
         advance = INITIAL_ADVANCE;
@@ -37,39 +37,36 @@ public class Player extends Character
         spritesLeft[1] = new GreenfootImage("./images/characters/protagonista_izquierda_1.png");
         spritesLeft[2] = new GreenfootImage("./images/characters/protagonista_izquierda_2.png");
         spritesLeft[3] = new GreenfootImage("./images/characters/protagonista_izquierda_3.png");
-
+        
         setOriginalPosition();
     }
-public void setCoordenadas(int x,int y){
-        setLocation(x,y);
-
-}
+    
     public int getInitialLives() {
         return INITIAL_LIVES;
     }
-
+    
     public int getLives() {
         return lives;
     }
-
+    
     public void addLife(int cure) {
         lives+=cure;
         if(lives > INITIAL_LIVES)
             lives = INITIAL_LIVES;
     }
-
+    
     public void removeLife(int damage) {
         lives = lives-damage;
     }
-
+    
     public void removeItem(int index) {
         inventory.remove(index);
     }
-
+    
     public List<KeyObject> getInventory() {
         return inventory;
     }
-
+    
     public void act() {
         try {
             checkKeyPressed();
@@ -90,19 +87,17 @@ public void setCoordenadas(int x,int y){
         catch(WallCollisionException Ex) {
             advance = 0;
             characterMove();
-        }catch(PlayerCollisionException Ex){}
-
+        }
     }
-
+    
     public void checkInteractionsNoMoving(){
         try {
             checkCollisions();
         } catch(ObjectCollisionException Ex) {
             checkInteractions();
         } catch(WallCollisionException Ex){}
-        catch(PlayerCollisionException Ex){}
     }
-
+    
     public void checkKeyPressed() throws NoKeyPressedException{
         if(Greenfoot.isKeyDown(Keys.LEFT)) {
             setDirection(CharacterDirection.LEFT);
@@ -120,7 +115,7 @@ public void setCoordenadas(int x,int y){
             throw new NoKeyPressedException();
         }
     }
-
+    
     public void checkRunKey() {
         if(Greenfoot.isKeyDown(Keys.RUN)) {
             speed = STAMINA_SPEED;
@@ -128,14 +123,9 @@ public void setCoordenadas(int x,int y){
             speed = INITIAL_SPEED;
         }
     }
-
+    
     public void checkInteractions(){
         try {
-            if (isTouching(Enemigo.class))
-            {
-                removeLife(1);
-                //getWorld.showText("F",500,500);
-            }
             collisionObject.isMovable();
             collisionObject.checkCollisions(direction);
             advance = INITIAL_ADVANCE;
@@ -151,15 +141,15 @@ public void setCoordenadas(int x,int y){
             advance = 0;
         }
     }
-
+    
     public void checkDoor() {                                                                                                                                                                                                                                                                                                                                               
         if(collisionObject instanceof Door) {
             ((Door)collisionObject).tryToOpen(inventory);
         } else {
             collisionObject.receiveObject();
-
+            
             if(collisionObject.getObject() != null) {
-
+                
                 inventory.add(collisionObject.getObject());
                 collisionObject.setObject(null);
             }

@@ -21,18 +21,18 @@ public class TextBox extends Actor
     }
     
     public void receiveObject(KeyObject object) {
-        showText("   ",object.getName() + " recibido!");
+        showText("   ",object.getName() + " RECIBIDO!");
         waitToConfirm();
         eraseText();
     }
     
     public void showText(String name, String text) {
-        getWorld().showText(name,this.getX(),this.getY()-50);
+        getWorld().showText(name,this.getX(),this.getY()-40);
         getWorld().showText(text,this.getX(),this.getY());
     }
     
     public void eraseText() {
-        getWorld().showText("    ",this.getX(),this.getY()-50);
+        getWorld().showText("    ",this.getX(),this.getY()-40);
         getWorld().showText("    ",this.getX(),this.getY());
     }
     

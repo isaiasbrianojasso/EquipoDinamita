@@ -77,13 +77,15 @@ public class HUD extends Actor
     public void updateLives(int playerLives) {
         
         if(playerLives%2 != 0) {
-            
             (lives.get(playerLives/2)).setHalfHeart();
+            
+            if(lives.size() > (playerLives/2)+1)
+                (lives.get((playerLives/2)+1)).setVoidHeart();
         }
         else {
-            if(playerLives < actualHudLife)
+            if(playerLives < actualHudLife) {
                 (lives.get(playerLives/2)).setVoidHeart();
-            else
+            } else
                 (lives.get(actualHudLife/2)).setFullHeart();
         }
         actualHudLife = playerLives;

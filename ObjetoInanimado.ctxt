@@ -1,6 +1,0 @@
-#BlueJ class context
-comment0.target=ObjetoInanimado
-comment0.text=\n\ Write\ a\ description\ of\ class\ Ba\u00F1o\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
-comment1.params=movable\ opcion
-comment1.target=ObjetoInanimado(boolean,\ int)
-numComments=2
