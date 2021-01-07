@@ -1,6 +1,6 @@
 import greenfoot.*;
 
-public class Button extends Actor
+public abstract class Button extends Actor
 {
     GreenfootImage button[] = new GreenfootImage[2];
     boolean buttonPressed;
@@ -30,6 +30,5 @@ public class Button extends Actor
             setImage(button[0]);
         }
     }
-    
 }
     

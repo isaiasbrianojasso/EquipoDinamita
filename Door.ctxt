@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Door
+comment1.params=doorNumber
+comment1.target=Door(int)
+comment2.params=locked
+comment2.target=void\ setLocked(boolean)
+comment3.params=inventory
+comment3.target=void\ tryToOpen(java.util.List)
+comment4.params=inventory
+comment4.target=void\ searchTheKey(java.util.List)
+numComments=5

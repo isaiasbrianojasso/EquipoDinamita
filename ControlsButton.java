@@ -2,11 +2,11 @@ import greenfoot.*;
 
 public class ControlsButton extends Button
 {
-    public void act() 
+    public void act()
     {
-        getWorld().showText("Controls",this.getX(),this.getY());
+        getWorld().showText("Controles",this.getX(),this.getY());
         validateImageChange();
-        if(buttonActive == true && buttonPressed == true) {
+        if(buttonActive && buttonPressed) {
             Greenfoot.setWorld (new Controls());
         }
     }    
