@@ -3,11 +3,11 @@ import greenfoot.*;
 public class Game extends World
 {
     private Player player = new Player();
-    public Basement basement = new Basement();
-    public FirstLevel firstLevel = new FirstLevel();
-    public SecondLevel secondLevel = new SecondLevel();
-    public ThirdLevel thirdLevel = new ThirdLevel();
-    public HUD hud = new HUD(player);
+    private Basement basement = new Basement();
+    private FirstLevel firstLevel = new FirstLevel();
+    private SecondLevel secondLevel = new SecondLevel();
+    private ThirdLevel thirdLevel = new ThirdLevel();
+    private HUD hud = new HUD(player);
 
     public Game()
     {

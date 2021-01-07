@@ -5,9 +5,9 @@ public abstract class Forniture extends Actor
 {
     protected String DEFAULT_DESCRIPTION;
     protected boolean movable = false;
-    public KeyObject object;
-    public String description;
-    public TextBox textbox = new TextBox();
+    protected KeyObject object;
+    protected String description;
+    protected TextBox textbox = new TextBox();
     
     public Forniture() {
         description = DEFAULT_DESCRIPTION;

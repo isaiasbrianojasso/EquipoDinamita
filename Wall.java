@@ -2,6 +2,22 @@ import greenfoot.*;
 
 public class Wall extends Actor
 {
+    private GreenfootImage CHERRY0 = new GreenfootImage("./images/extras/cherry_wall0.jpg");
+    private GreenfootImage CHERRY1 = new GreenfootImage("./images/extras/cherry_wall1.jpg");
+    private GreenfootImage CHERRY2 = new GreenfootImage("./images/extras/cherry_wall2.jpg");
+    private GreenfootImage BLOOD0 = new GreenfootImage("./images/extras/blood_wall0.jpg");
+    private GreenfootImage BLOOD1 = new GreenfootImage("./images/extras/blood_wall1.jpg");
+    private GreenfootImage BLOOD2 = new GreenfootImage("./images/extras/blood_wall2.jpg");
+    private GreenfootImage BROWNIE0 = new GreenfootImage("./images/extras/brownie_wall0.jpg");
+    private GreenfootImage BROWNIE1 = new GreenfootImage("./images/extras/brownie_wall1.jpg");
+    private GreenfootImage BROWNIE2 = new GreenfootImage("./images/extras/brownie_wall2.jpg");
+    private GreenfootImage FANCY0 = new GreenfootImage("./images/extras/fancy_wall0.jpg");
+    private GreenfootImage FANCY1 = new GreenfootImage("./images/extras/fancy_wall1.jpg");
+    private GreenfootImage FANCY2 = new GreenfootImage("./images/extras/fancy_wall2.jpg");
+    private GreenfootImage ROCK0 = new GreenfootImage("./images/extras/rock_wall0.jpg");
+    private GreenfootImage ROCK1 = new GreenfootImage("./images/extras/rock_wall1.jpg");
+    private GreenfootImage ROCK2 = new GreenfootImage("./images/extras/rock_wall2.jpg");
+    
     public Wall(int wallType, int wallSubtype)
     {
         switch(wallType) {
@@ -28,13 +44,13 @@ public class Wall extends Actor
     public void cherryWall(int subtype){
         switch(subtype) {
             case 0:
-                setImage(new GreenfootImage("./images/extras/cherry_wall0.jpg"));
+                setImage(CHERRY0);
             break;
             case 1:
-                setImage(new GreenfootImage("./images/extras/cherry_wall1.jpg"));
+                setImage(CHERRY1);
             break;
             case 2:
-                setImage(new GreenfootImage("./images/extras/cherry_wall2.jpg"));
+                setImage(CHERRY2);
             break;
         } 
     }
@@ -42,13 +58,13 @@ public class Wall extends Actor
     public void bloodWall(int subtype){
         switch(subtype) {
             case 0:
-                setImage(new GreenfootImage("./images/extras/blood_wall0.jpg"));
+                setImage(BLOOD0);
             break;
             case 1:
-                setImage(new GreenfootImage("./images/extras/blood_wall1.jpg"));
+                setImage(BLOOD1);
             break;
             case 2:
-                setImage(new GreenfootImage("./images/extras/blood_wall2.jpg"));
+                setImage(BLOOD2);
             break;
         } 
     }
@@ -56,13 +72,13 @@ public class Wall extends Actor
     public void brownieWall(int subtype){
         switch(subtype) {
             case 0:
-                setImage(new GreenfootImage("./images/extras/brownie_wall0.jpg"));
+                setImage(BROWNIE0);
             break;
             case 1:
-                setImage(new GreenfootImage("./images/extras/brownie_wall1.jpg"));
+                setImage(BROWNIE1);
             break;
             case 2:
-                setImage(new GreenfootImage("./images/extras/brownie_wall2.jpg"));
+                setImage(BROWNIE2);
             break;
         } 
     }
@@ -70,13 +86,13 @@ public class Wall extends Actor
     public void fancyWall(int subtype){
         switch(subtype) {
             case 0:
-                setImage(new GreenfootImage("./images/extras/fancy_wall0.jpg"));
+                setImage(FANCY0);
             break;
             case 1:
-                setImage(new GreenfootImage("./images/extras/fancy_wall1.jpg"));
+                setImage(FANCY1);
             break;
             case 2:
-                setImage(new GreenfootImage("./images/extras/fancy_wall2.jpg"));
+                setImage(FANCY2);
             break;
         } 
     }
@@ -84,13 +100,13 @@ public class Wall extends Actor
     public void rockWall(int subtype){
         switch(subtype) {
             case 0:
-                setImage(new GreenfootImage("./images/extras/rock_wall0.jpg"));
+                setImage(ROCK0);
             break;
             case 1:
-                setImage(new GreenfootImage("./images/extras/rock_wall1.jpg"));
+                setImage(ROCK1);
             break;
             case 2:
-                setImage(new GreenfootImage("./images/extras/rock_wall2.jpg"));
+                setImage(ROCK2);
             break;
         } 
     }
