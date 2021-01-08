@@ -21,7 +21,7 @@ public class TextBox extends Actor
     }
     
     public void receiveObject(KeyObject object) {
-        showText("   ",object.getName() + " RECIBIDO!");
+        showText("   ",object.getName() + " recibido!");
         waitToConfirm();
         eraseText();
     }

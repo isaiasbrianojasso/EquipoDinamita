@@ -62,6 +62,7 @@ public class Pause extends Actor
             break;
             case 1:
                 Sounds.Stopfondo();
+                Sounds.StopPiano();
                 Greenfoot.setWorld (new Menu());
             break;
         }

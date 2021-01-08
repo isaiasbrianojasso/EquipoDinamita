@@ -10,7 +10,7 @@ public class Game extends World
     private ThirdLevel thirdLevel = new ThirdLevel();
     private Inventory inventory = new Inventory();
     private Pause pause = new Pause();
-    private boolean isBackgroundMusicPaused = false;
+    private boolean isBackgroundMusicPaused = true;
 
     public Game()
     {
@@ -32,11 +32,11 @@ public class Game extends World
         addObject(firstLevel,0,0);
         addObject(secondLevel,0,0);
         addObject(thirdLevel,0,0);
-        addObject(player,getWidth()/2,getHeight()/2);
+        addObject(player,512,180);
 
-        thirdLevel.setHall();
+        thirdLevel.setLibrary();
         hud.setHud();
-        Sounds.fondo();
+        
     }
 
     public void act() {
