@@ -10,11 +10,12 @@ public class Game extends World
     private ThirdLevel thirdLevel = new ThirdLevel();
     private Inventory inventory = new Inventory();
     private Pause pause = new Pause();
+    private boolean isBackgroundMusicPaused = false;
 
     public Game()
     {
         super(1024, 480, 1);
-        setActOrder(Floor.class,Wall.class,Forniture.class,Character.class,Spider.class,Inventory.class,Pause.class,SelectLight.class,KeyObject.class,TextBox.class,HUD.class);
+        setActOrder(Floor.class,Wall.class,Forniture.class,Character.class,Enemy.class,Inventory.class,Pause.class,SelectLight.class,KeyObject.class,TextBox.class,HUD.class);
         prepare();
         act();
     }
@@ -35,7 +36,7 @@ public class Game extends World
 
         thirdLevel.setHall();
         hud.setHud();
-        
+        Sounds.fondo();
     }
 
     public void act() {
@@ -48,6 +49,12 @@ public class Game extends World
     }
     
     public void changeRoom(char destinationRoom,int destinationX,int destinationY) {
+        
+        if(isBackgroundMusicPaused) {
+            Sounds.StopPiano();
+            Sounds.fondo();
+            isBackgroundMusicPaused = false;
+        }
         
         eraseRoom();
         switch(destinationRoom) {
@@ -72,6 +79,7 @@ public class Game extends World
                 hud.setRoomName(thirdLevel.getRoomName());
             break;
             case 'f':
+                isBackgroundMusicPaused = true;
                 thirdLevel.setLibrary();
                 hud.setRoomName(thirdLevel.getRoomName());
             break;
@@ -139,7 +147,7 @@ public class Game extends World
         removeObjects(getObjects(Forniture.class));
         removeObjects(getObjects(Floor.class));
         removeObjects(getObjects(Wall.class));
-        removeObjects(getObjects(Spider.class));
+        removeObjects(getObjects(Enemy.class));
     }
     
     public void showInventory() {

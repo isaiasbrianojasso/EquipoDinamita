@@ -1,24 +1,48 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
-/**
- * Write a description of class Enemigo here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
-public class Enemigo extends Character
-
+public class Enemigo extends Enemy
 {
-    private  int contador=100;
-    private  int normal=0;
-    public Enemigo(int opcion,int comogustes)
+    private int option;
+    
+    public Enemigo(int opcion)
     {
-        normal=comogustes;
+        spritesUp = new GreenfootImage[4];
+        spritesDown = new GreenfootImage[4];
+        spritesLeft = new GreenfootImage[4];
+        spritesRight = new GreenfootImage[4];
+        
+        option = opcion;
         direction = CharacterDirection.DOWN;
+        
         switch(opcion){
+            case 0:
+            speed = 8;
+            advance = 4;
+            damage = 1;
+
+            spritesRight[0] = new GreenfootImage("./images/characters/fantasma_derecha_2.png");
+            spritesRight[1] = new GreenfootImage("./images/characters/fantasma_derecha_1.png");
+            spritesRight[2] = new GreenfootImage("./images/characters/fantasma_derecha_2.png");
+            spritesRight[3] = new GreenfootImage("./images/characters/fantasma_derecha_3.png");
+
+            spritesUp[0] = new GreenfootImage("./images/characters/fantasma_arriba_2.png");
+            spritesUp[1] = new GreenfootImage("./images/characters/fantasma_arriba_1.png");
+            spritesUp[2] = new GreenfootImage("./images/characters/fantasma_arriba_2.png");
+            spritesUp[3] = new GreenfootImage("./images/characters/fantasma_arriba_3.png");
+            spritesDown[0] = new GreenfootImage("./images/characters/fantasma_abajo_2.png");
+            spritesDown[1] = new GreenfootImage("./images/characters/fantasma_abajo_1.png");
+            spritesDown[2] = new GreenfootImage("./images/characters/fantasma_abajo_2.png");
+            spritesDown[3] = new GreenfootImage("./images/characters/fantasma_abajo_3.png");
+            spritesLeft[0] = new GreenfootImage("./images/characters/fantasma_izquierda_2.png");
+            spritesLeft[1] = new GreenfootImage("./images/characters/fantasma_izquierda_1.png");
+            spritesLeft[2] = new GreenfootImage("./images/characters/fantasma_izquierda_2.png");
+            spritesLeft[3] = new GreenfootImage("./images/characters/fantasma_izquierda_3.png");
+            break;
+
             case 1:
-            name = "zombie";
-                   Sounds.zombie_fondo();  
+            speed = 6;
+            advance = 4;
+            damage = 1;
 
             spritesRight[0] = new GreenfootImage("./images/characters/zombie_derecha_2.png");
             spritesRight[1] = new GreenfootImage("./images/characters/zombie_derecha_1.png");
@@ -36,40 +60,12 @@ public class Enemigo extends Character
             spritesLeft[1] = new GreenfootImage("./images/characters/zombie_izquierda_1.png");
             spritesLeft[2] = new GreenfootImage("./images/characters/zombie_izquierda_2.png");
             spritesLeft[3] = new GreenfootImage("./images/characters/zombie_izquierda_3.png");
-            setOriginalPosition();
-
             break;
 
             case 2:
-                               Sounds.fantasma_lamento();  
-
-            name = "fantasma";
-            spritesRight[0] = new GreenfootImage("./images/characters/fantasma_derecha_2.png");
-            spritesRight[1] = new GreenfootImage("./images/characters/fantasma_derecha_1.png");
-            spritesRight[2] = new GreenfootImage("./images/characters/fantasma_derecha_2.png");
-            spritesRight[3] = new GreenfootImage("./images/characters/fantasma_derecha_3.png");
-
-            spritesUp[0] = new GreenfootImage("./images/characters/fantasma_arriba_2.png");
-            spritesUp[1] = new GreenfootImage("./images/characters/fantasma_arriba_1.png");
-            spritesUp[2] = new GreenfootImage("./images/characters/fantasma_arriba_2.png");
-            spritesUp[3] = new GreenfootImage("./images/characters/fantasma_arriba_3.png");
-
-            spritesDown[0] = new GreenfootImage("./images/characters/fantasma_abajo_2.png");
-            spritesDown[1] = new GreenfootImage("./images/characters/fantasma_abajo_1.png");
-            spritesDown[2] = new GreenfootImage("./images/characters/fantasma_abajo_2.png");
-            spritesDown[3] = new GreenfootImage("./images/characters/fantasma_abajo_3.png");
-
-            spritesLeft[0] = new GreenfootImage("./images/characters/fantasma_izquierda_2.png");
-            spritesLeft[1] = new GreenfootImage("./images/characters/fantasma_izquierda_1.png");
-            spritesLeft[2] = new GreenfootImage("./images/characters/fantasma_izquierda_2.png");
-            spritesLeft[3] = new GreenfootImage("./images/characters/fantasma_izquierda_3.png");
-
-            setOriginalPosition();
-            break;
-
-            case 3:
-      name = "zombie2";
-                         Sounds.zombie_fondo();  
+            speed = 4;
+            advance = 4;
+            damage = 1;
 
             spritesRight[0] = new GreenfootImage("./images/characters/zombie2_derecha_2.png");
             spritesRight[1] = new GreenfootImage("./images/characters/zombie2_derecha_1.png");
@@ -87,11 +83,12 @@ public class Enemigo extends Character
             spritesLeft[1] = new GreenfootImage("./images/characters/zombie2_izquierda_1.png");
             spritesLeft[2] = new GreenfootImage("./images/characters/zombie2_izquierda_2.png");
             spritesLeft[3] = new GreenfootImage("./images/characters/zombie2_izquierda_3.png");
-            setOriginalPosition();
             break;
-           case 4:
-                 name = "zombie3";
-                                    Sounds.zombie_fondo();  
+            
+            case 3:
+            speed = 2;
+            advance = 4;
+            damage = 1;
 
             spritesRight[0] = new GreenfootImage("./images/characters/zombie3_derecha_2.png");
             spritesRight[1] = new GreenfootImage("./images/characters/zombie3_derecha_1.png");
@@ -109,121 +106,43 @@ public class Enemigo extends Character
             spritesLeft[1] = new GreenfootImage("./images/characters/zombie3_izquierda_1.png");
             spritesLeft[2] = new GreenfootImage("./images/characters/zombie3_izquierda_2.png");
             spritesLeft[3] = new GreenfootImage("./images/characters/zombie3_izquierda_3.png");
-            setOriginalPosition();
-           break;
-
+            break;
         }
+        direction = CharacterDirection.DOWN;
+        setImage(spritesDown[0]);
     }
 
     public void act() {
         try {
-            //checkKeyPressed();
-            //checkRunKey();
-            if(contador==0){
-                normal = Greenfoot.getRandomNumber(4-0);
-                contador=50;
-            }else{
-                contador--;
+            checkCollisions(20);
+            searchPlayer();
+            walk(4);
+            growl();
+        } catch(WallCollisionException Ex) {
+            changeDirection();
+        } catch(PlayerCollisionException Ex) {
+            if(!playerIsHitted) {
+                playerDamage();
+                biteSound();
+                playerIsHitted = true;
             }
-            if(normal==0){
-                checkCollisions();
-                checkCollisionsEnemigo();
-                setDirection(CharacterDirection.RIGHT);
-                advance = 5;
-                characterMove();
-
-            }else if(normal==1){
-
-                checkCollisions();
-                setDirection(CharacterDirection.LEFT);
-                advance = 5;
-                characterMove();
-
-            }else if(normal==2){
-
-                checkCollisions();
-                setDirection(CharacterDirection.DOWN);
-                advance = 5;
-                characterMove();
-
-            }
-            else if(normal==3){
-                checkCollisions();
-                setDirection(CharacterDirection.UP);
-                advance = 2;
-                characterMove();
-
-            }
-
+            walk(4);
         }
-
-        catch(ObjectCollisionException Ex) {
-
-            setDirection(CharacterDirection.DOWN);
-            checkInteractions();
-            characterMove();
-
-        }
-        catch(WallCollisionException Ex) {
-
-            setDirection(CharacterDirection.DOWN);
-            advance = 4;
-            characterMove();
-
-        }
-        catch(EnemigoCollisionException Ex) {
-
-            setDirection(CharacterDirection.DOWN);
-            advance = 4;
-            characterMove();
-
-        }
-        catch(PlayerCollisionException Ex) {
-            if(((Game)getWorld()).player.getLives()>0){
-                ((Game)getWorld()).player.removeLife(1);
-                ((Game)getWorld()).hud.updateLives(((Game)getWorld()).player.getLives());
-                ((Game)getWorld()).player.setCoordenadas(getX(),getY()-80);
-                 Sounds.zombie_mordida();        
-
-            }else{
-                //gameover
-
-            }
-
-        }
-
+        playerVulnerableCounter();
     }
-
-    public void checkInteractionsNoMoving(){
-        try {
-            checkCollisions();
-        } catch(ObjectCollisionException Ex) {
-            checkInteractions();
-            setDirection(CharacterDirection.DOWN);
-
-        } catch(WallCollisionException Ex){
-            setDirection(CharacterDirection.DOWN);
-
-        }catch(PlayerCollisionException Ex){
-            setDirection(CharacterDirection.DOWN);
-
-        }
+    
+    public void biteSound() {
+        if(option == 0)
+            Sounds.fantasma_mordida();
+        else
+            Sounds.zombie_mordida();
     }
-
-    public void checkInteractions(){
-        try {
-            collisionObject.isMovable();
-            collisionObject.checkCollisions(direction);
-            collisionObject.movement(direction);
-        }
-        catch(NoMovableObjectException Ex) {
-            advance = 0;
-
-        }
-        catch(ObjectCollisionException Ex) {
-            advance = 0;
-        }
-
+    
+    public void growl() {
+        if(Greenfoot.getRandomNumber(300) == 0)
+            if(option == 0)
+                Sounds.fantasma_lamento();
+            else
+                Sounds.zombie_fondo(); 
     }
-
 } 

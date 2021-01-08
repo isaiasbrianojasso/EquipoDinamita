@@ -12,6 +12,4 @@ comment5.params=
 comment5.target=void\ setDinningRoom()
 comment6.params=
 comment6.target=void\ setKitchen()
-comment7.params=
-comment7.target=void\ remueve()
-numComments=8
+numComments=7

@@ -19,9 +19,15 @@ public enum CharacterDirection
         return RIGHT;
     }
     
-    public static CharacterDirection getRandomSidesDirection(){
+    public static CharacterDirection getRandomSidesDirectionLR(){
         if(Greenfoot.getRandomNumber(2) == 0)
                 return LEFT;
         return RIGHT;
+    }
+    
+    public static CharacterDirection getRandomSidesDirectionUD(){
+        if(Greenfoot.getRandomNumber(2) == 0)
+                return UP;
+        return DOWN;
     }
 }

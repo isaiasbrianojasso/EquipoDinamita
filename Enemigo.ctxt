@@ -1,12 +1,11 @@
 #BlueJ class context
 comment0.target=Enemigo
-comment0.text=\n\ Write\ a\ description\ of\ class\ Enemigo\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
-comment1.params=opcion\ comogustes
-comment1.target=Enemigo(int,\ int)
+comment1.params=opcion
+comment1.target=Enemigo(int)
 comment2.params=
 comment2.target=void\ act()
 comment3.params=
-comment3.target=void\ checkInteractionsNoMoving()
+comment3.target=void\ biteSound()
 comment4.params=
-comment4.target=void\ checkInteractions()
+comment4.target=void\ growl()
 numComments=5
