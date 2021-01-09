@@ -1,4 +1,3 @@
-
 import greenfoot.*;
 
 public class ThirdLevel extends Level
@@ -8,32 +7,79 @@ public class ThirdLevel extends Level
         
         Door door1A = new Door("PUERTA 01",0,0);
         door1A.setDestination('b',512,365);
+        door1A.setLocked(true);
         door1A.setDescription(Dialogues.LINE_LOCKED_DOOR);
-        keyForniture.add(0,door1A);
+        keyForniture.add(door1A);
         
         Door door8A = new Door("PUERTA 08",0,0);
         door8A.setDestination('a',385,300);
         door8A.setLocked(true);
         door8A.setDescription(Dialogues.LINE_LOCKED_DOOR);
-        keyForniture.add(1,door8A);
+        keyForniture.add(door8A);
         
         Door door12A = new Door("PUERTA 12",0,2);
         door12A.setDestination('h',512,150);
+        door12A.setLocked(true);
         door12A.setDescription(Dialogues.LINE_LOCKED_DOOR);
-        keyForniture.add(2,door12A);
+        keyForniture.add(door12A);
         
         Door elevatorFirstFloor = new Door("PRIMER PISO",1,0);
         elevatorFirstFloor.setDestination('n',384,212);
-        elevatorFirstFloor.setDescription(Dialogues.LINE_ELEVATOR_NO_WORKS);
-        keyForniture.add(3,elevatorFirstFloor);
+        elevatorFirstFloor.setLocked(true);
+        elevatorFirstFloor.setDescription(Dialogues.LINE_FIRST_ELEVATOR_NO_WORKS);
+        keyForniture.add(elevatorFirstFloor);
         
-        keyForniture.add(4,new ObjetoInanimado(false,21));
+        keyForniture.add(new ObjetoInanimado(false,21));
         keyForniture.get(4).setObject(new Key("PUERTA 08"));
         keyForniture.get(4).setDescription(Dialogues.LINE_FIRST_KEY);
         
-        keyForniture.add(5,new ObjetoInanimado(false,12));
-        keyForniture.get(5).setObject(new BandAid());
-        keyForniture.get(5).setDescription(Dialogues.LINE_1);
+        keyForniture.add(new ObjetoInanimado(false,33));
+        keyForniture.get(5).setObject(new Key("PUERTA 01"));
+        keyForniture.get(5).setDescription(Dialogues.LINE_SECOND_KEY);
+        
+        keyForniture.add(new ObjetoInanimado(false,35));
+        keyForniture.get(6).setObject(new ElevatorButton("PRIMER PISO"));
+        keyForniture.get(6).setDescription(Dialogues.LINE_FIRST_ELEVATORBUTTON);
+        
+        keyForniture.add(new ObjetoInanimado(false,1));
+        keyForniture.get(7).setObject(new Flashlight());
+        keyForniture.get(7).setDescription(Dialogues.LINE_FLASHLIGHT);
+        
+        keyForniture.add(new ObjetoInanimado(false,20));
+        keyForniture.get(8).setObject(new Bate());
+        keyForniture.get(8).setDescription(Dialogues.LINE_BATE);
+        
+        keyForniture.add(new ObjetoInanimado(false,12));
+        keyForniture.get(9).setObject(new BandAid());
+        keyForniture.get(9).setDescription(Dialogues.LINE_1);
+        
+        keyForniture.add(new ObjetoInanimado(false,19));
+        keyForniture.get(10).setObject(new BandAid());
+        keyForniture.get(10).setDescription(Dialogues.LINE_2);
+        
+        keyForniture.add(new ObjetoInanimado(false,31));
+        keyForniture.get(11).setObject(new PillBottle());
+        keyForniture.get(11).setDescription(Dialogues.LINE_3);
+        
+        keyForniture.add(new ObjetoInanimado(false,36));
+        keyForniture.get(12).setObject(new BandAid());
+        keyForniture.get(12).setDescription(Dialogues.LINE_4);
+        
+        keyForniture.add(new ObjetoInanimado(false,40));
+        keyForniture.get(13).setObject(new BandAid());
+        keyForniture.get(13).setDescription(Dialogues.LINE_1);
+        
+        keyForniture.add(new ObjetoInanimado(false,37));
+        keyForniture.get(14).setObject(new PillBottle());
+        keyForniture.get(14).setDescription(Dialogues.LINE_5);
+        
+        keyForniture.add(new ObjetoInanimado(false,24));
+        keyForniture.get(15).setObject(new BandAid());
+        keyForniture.get(15).setDescription(Dialogues.LINE_3);
+        
+        keyForniture.add(new ObjetoInanimado(false,35));
+        keyForniture.get(16).setObject(new BandAid());
+        keyForniture.get(16).setDescription(Dialogues.LINE_4);
     }
 
     public void setLibrary() {
@@ -64,7 +110,7 @@ public class ThirdLevel extends Level
         getWorld().addObject(new ObjetoInanimado(false,16),250,120);
         getWorld().addObject(new ObjetoInanimado(false,17),460,120);
         getWorld().addObject(new ObjetoInanimado(false,18),565,120);
-        getWorld().addObject(new ObjetoInanimado(false,19),775,120);
+        getWorld().addObject(keyForniture.get(10),775,120);
         
         // sillas
         getWorld().addObject(new ObjetoInanimado(true,29),165,145);
@@ -79,7 +125,7 @@ public class ThirdLevel extends Level
         getWorld().addObject(new ObjetoInanimado(true,27),775,140);
         
         //Libreros
-        getWorld().addObject(keyForniture.get(5),280,270);
+        getWorld().addObject(keyForniture.get(9),280,270);
         getWorld().addObject(new ObjetoInanimado(false,12),745,270);
         getWorld().addObject(new ObjetoInanimado(false,14),670,270);
         getWorld().addObject(new ObjetoInanimado(false,15),355,270);
@@ -182,7 +228,7 @@ public class ThirdLevel extends Level
         getWorld().addObject(new ObjetoInanimado(false,25),424,170);
         //Estantes
         getWorld().addObject(new ObjetoInanimado(false,30),292,144);
-        getWorld().addObject(new ObjetoInanimado(false,31),740,144);
+        getWorld().addObject(keyForniture.get(11),740,144);
         getWorld().addObject(new ObjetoInanimado(false,36),273,260);
         getWorld().addObject(new ObjetoInanimado(true,36),758,260);
         //Lamparas
@@ -217,7 +263,7 @@ public class ThirdLevel extends Level
         getWorld().addObject(new ObjetoInanimado(false,35),490,288);
         getWorld().addObject(new ObjetoInanimado(false,35),560,275);
         getWorld().addObject(new ObjetoInanimado(false,34),630,280);
-        getWorld().addObject(new ObjetoInanimado(false,36),690,240);
+        getWorld().addObject(keyForniture.get(12),690,240);
         getWorld().addObject(new ObjetoInanimado(false,47),680,280);
         getWorld().addObject(new ObjetoInanimado(false,33),500,140);
         getWorld().addObject(new ObjetoInanimado(false,35),580,150);
@@ -235,7 +281,7 @@ public class ThirdLevel extends Level
         
         getWorld().addObject(new ObjetoInanimado(false,50),512,190);//Ventana
         getWorld().addObject(new ObjetoInanimado(false,0),600,180);//baño_espejo
-        getWorld().addObject(new ObjetoInanimado(false,1),420,200);//bañera
+        getWorld().addObject(keyForniture.get(7),420,200);//bañera
         getWorld().addObject(new ObjetoInanimado(false,2),605,210);//lavado
         getWorld().addObject(new ObjetoInanimado(false,3),625,300);//taza
     }
@@ -261,9 +307,9 @@ public class ThirdLevel extends Level
         getWorld().addObject(new ObjetoInanimado(false,24),580,170); //Cama
         getWorld().addObject(new ObjetoInanimado(false,38),520,150); //Lampara
         getWorld().addObject(new ObjetoInanimado(false,20),758,300); //Escritorio
+        getWorld().addObject(keyForniture.get(13),420,140); //Ropero
         
         //Estantes
-        getWorld().addObject(new ObjetoInanimado(false,40),420,140);
         getWorld().addObject(new ObjetoInanimado(false,30),740,144);
         getWorld().addObject(new ObjetoInanimado(false,36),273,240);
         
@@ -295,7 +341,7 @@ public class ThirdLevel extends Level
         getWorld().addObject(new ObjetoInanimado(false,13),660,140); //Librero
         getWorld().addObject(new ObjetoInanimado(false,43),590,145); //Planta
         //Estantes
-        getWorld().addObject(new ObjetoInanimado(false,37),310,155);
+        getWorld().addObject(keyForniture.get(14),310,155);
         getWorld().addObject(new ObjetoInanimado(false,36),273,280);
         getWorld().addObject(new ObjetoInanimado(false,36),758,300);
         
@@ -332,7 +378,7 @@ public class ThirdLevel extends Level
         getWorld().addObject(door7D,544,195); //Habitación 7D
         
         //Estantes
-        getWorld().addObject(new ObjetoInanimado(false,33),450,200);
+        getWorld().addObject(keyForniture.get(5),450,200);
         getWorld().addObject(new ObjetoInanimado(false,31),610,200);
     }
 
@@ -355,10 +401,10 @@ public class ThirdLevel extends Level
         getWorld().addObject(closetDoor,670,390); //Armario
         
         //Camas
-        getWorld().addObject(new ObjetoInanimado(false,24),600,170);
+        getWorld().addObject(keyForniture.get(15),600,170);
         getWorld().addObject(new ObjetoInanimado(false,24),424,170);
         //Estantes
-        getWorld().addObject(new ObjetoInanimado(false,35),292,144);
+        getWorld().addObject(keyForniture.get(6),292,144);
         getWorld().addObject(new ObjetoInanimado(false,33),740,144);
         getWorld().addObject(new ObjetoInanimado(false,36),758,300);
         //Lamparas
@@ -391,7 +437,7 @@ public class ThirdLevel extends Level
         getWorld().addObject(new ObjetoInanimado(false,33),295,200);
         getWorld().addObject(new ObjetoInanimado(false,34),360,210);
         getWorld().addObject(new ObjetoInanimado(false,35),430,300);
-        getWorld().addObject(new ObjetoInanimado(false,35),560,275);
+        getWorld().addObject(keyForniture.get(16),560,275);
         getWorld().addObject(new ObjetoInanimado(false,34),630,280);
         getWorld().addObject(new ObjetoInanimado(false,36),690,240);
         getWorld().addObject(new ObjetoInanimado(false,46),640,170);
@@ -414,7 +460,7 @@ public class ThirdLevel extends Level
         
         getWorld().addObject(new ObjetoInanimado(false,37),450,220); //Estante
         getWorld().addObject(new ObjetoInanimado(false,14),600,200); //Librero
-        getWorld().addObject(new ObjetoInanimado(false,20),398,270); //Escritorio
+        getWorld().addObject(keyForniture.get(8),398,270); //Escritorio
         
         getWorld().addObject(new ObjetoInanimado(true,27),440,310); //Silla
         getWorld().addObject(new ObjetoInanimado(true,39),600,280); //Taburete

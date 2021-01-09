@@ -4,7 +4,7 @@ public class BossSpider extends Spider
 {
     private boolean battleIsStarted = false;
     
-    private static int TOTAL_LIVES = 6;
+    private static int TOTAL_LIVES = 10;
     private int lives = TOTAL_LIVES;
     
     private boolean defeated = false;

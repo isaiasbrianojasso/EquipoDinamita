@@ -7,7 +7,7 @@ public class Player extends Character
     private static int INITIAL_ADVANCE = 8;
     private static int INITIAL_SPEED = 12;
     private static int STAMINA_SPEED = 18;
-    private static int INITIAL_LIVES = 8;
+    private static int INITIAL_LIVES = 6;
     private List<KeyObject> inventory = new ArrayList<KeyObject>();
 
     public Player() {
@@ -142,13 +142,13 @@ public class Player extends Character
         }
     }
     
-    public void checkDoor() {                                                                                                                                                                                                                                                                                                                                               
+    public void checkDoor() {
         if(collisionObject instanceof Door) {
             ((Door)collisionObject).tryToOpen(inventory);
         } else {
-            collisionObject.receiveObject();
+            collisionObject.receiveObject(inventory.size());
             
-            if(collisionObject.getObject() != null) {
+            if(inventory.size() < 20 && collisionObject.getObject() != null) {
                 
                 inventory.add(collisionObject.getObject());
                 collisionObject.setObject(null);

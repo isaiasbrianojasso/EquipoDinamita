@@ -42,14 +42,10 @@ public class Door extends Forniture
     }
     
     public void closedDoorType(){
-        switch(doorType) {
-            case 0:
-                normalDoor();
-            break;
-            case 1:
-                setImage(new GreenfootImage("./images/forniture/elevator0.png"));
-            break;
-        }
+        if(doorType == 0)
+            normalDoor();
+        else
+            setImage(new GreenfootImage("./images/forniture/elevator0.png"));
     }
     
     public void setLocked(boolean locked) {
@@ -96,6 +92,11 @@ public class Door extends Forniture
         
         for (KeyObject keyObject : inventory) {
             if(keyObject instanceof Key && ((Key)keyObject).getNumber().equals(doorNumber)) {
+                ((Game)getWorld()).player.removeItem(index);
+                found = true;
+                break;
+            }
+            else if(keyObject instanceof ElevatorButton && ((ElevatorButton)keyObject).getNumber().equals(doorNumber)) {
                 ((Game)getWorld()).player.removeItem(index);
                 found = true;
                 break;

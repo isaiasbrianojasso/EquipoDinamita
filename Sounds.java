@@ -25,7 +25,7 @@ public class Sounds
     }
 
     public static void spider_background(){
-        spider_background.play();
+        spider_background.playLoop();
     }
 
     public static void Stopspider_background(){

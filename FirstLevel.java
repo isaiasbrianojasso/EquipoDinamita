@@ -7,15 +7,42 @@ public class FirstLevel extends Level
         setImage(new GreenfootImage(1,1));
         
         Door doorStairs = new Door("ESCALERAS",0,1);
-        doorStairs.setLocked(true);
         doorStairs.setDestination('r',756,240);
+        doorStairs.setLocked(true);
         doorStairs.setDescription(Dialogues.LINE_STAIRS_BLOCKED);
         keyForniture.add(doorStairs);
         
         Door elevatorThirdFloor = new Door("TERCER PISO",1,0);
         elevatorThirdFloor.setDestination('a',768,212);
-        elevatorThirdFloor.setDescription(Dialogues.LINE_ELEVATOR_NO_WORKS);
+        elevatorThirdFloor.setLocked(true);
+        elevatorThirdFloor.setDescription(Dialogues.LINE_SECOND_ELEVATOR_NO_WORKS);
         keyForniture.add(elevatorThirdFloor);
+        
+        Door doorBasement = new Door("SOTANO",0,1);
+        doorBasement.setDestination('s',885,240);
+        doorBasement.setLocked(true);
+        doorBasement.setDescription(Dialogues.LINE_NO_FLASHLIGHT_BATE);
+        keyForniture.add(doorBasement);
+        
+        keyForniture.add(new ObjetoInanimado(false,33));
+        keyForniture.get(3).setObject(new ElevatorButton("TERCER PISO"));
+        keyForniture.get(3).setDescription(Dialogues.LINE_SECOND_ELEVATORBUTTON);
+        
+        keyForniture.add(new ObjetoInanimado(false,6));
+        keyForniture.get(4).setObject(new Key("PUERTA 12"));
+        keyForniture.get(4).setDescription(Dialogues.LINE_THIRD_KEY);
+        
+        keyForniture.add(new ObjetoInanimado(false,36));
+        keyForniture.get(5).setObject(new PillBottle());
+        keyForniture.get(5).setDescription(Dialogues.LINE_2);
+        
+        keyForniture.add(new ObjetoInanimado(false,5));
+        keyForniture.get(6).setObject(new BandAid());
+        keyForniture.get(6).setDescription(Dialogues.LINE_4);
+        
+        keyForniture.add(new ObjetoInanimado(false,33));
+        keyForniture.get(7).setObject(new BandAid());
+        keyForniture.get(7).setDescription(Dialogues.LINE_5);
     }
 
     public void setLobby() {
@@ -78,9 +105,8 @@ public class FirstLevel extends Level
         doorLobby.setDestination('m',880,240);
         getWorld().addObject(doorLobby,220,240); //Lobby
         
-        Door doorBasement = new Door("SOTANO",0,1);
-        doorBasement.setDestination('s',885,240);
-        getWorld().addObject(doorBasement,800,240); //Sotano
+        checkWeaponInInventory();
+        getWorld().addObject(keyForniture.get(2),800,240); //Sotano
         
         //Cuadros
         getWorld().addObject(new ObjetoInanimado(false,41),300,190);
@@ -154,9 +180,9 @@ public class FirstLevel extends Level
         getWorld().addObject(new ObjetoInanimado(true,29),700,270);
         //Estantes
         getWorld().addObject(new ObjetoInanimado(false,33),292,144);
-        getWorld().addObject(new ObjetoInanimado(false,33),740,144);
+        getWorld().addObject(keyForniture.get(3),740,144);
         getWorld().addObject(new ObjetoInanimado(false,36),240,300);
-        getWorld().addObject(new ObjetoInanimado(false,36),790,300);
+        getWorld().addObject(keyForniture.get(5),790,300);
         
         getWorld().addObject(Zombie2A,512,160);
         getWorld().addObject(Zombie3A,700,370);
@@ -183,16 +209,16 @@ public class FirstLevel extends Level
         getWorld().addObject(new ObjetoInanimado(false,5),240,275);
         getWorld().addObject(new ObjetoInanimado(false,6),285,160);
         getWorld().addObject(new ObjetoInanimado(false,7),280,150); //Fregadero
-        getWorld().addObject(new ObjetoInanimado(false,6),348,160);
+        getWorld().addObject(keyForniture.get(4),348,160);
         getWorld().addObject(new ObjetoInanimado(false,8),395,160); //Estufa
         getWorld().addObject(new ObjetoInanimado(false,6),443,160);
         getWorld().addObject(new ObjetoInanimado(false,6),505,160);
         getWorld().addObject(new ObjetoInanimado(false,4),552,145); //Refrigerador
         getWorld().addObject(new ObjetoInanimado(false,5),581,175);
-        getWorld().addObject(new ObjetoInanimado(false,5),581,225);
+        getWorld().addObject(keyForniture.get(6),581,225);
         getWorld().addObject(new ObjetoInanimado(false,5),581,275);
         //Estantes
-        getWorld().addObject(new ObjetoInanimado(false,33),750,144);
+        getWorld().addObject(keyForniture.get(7),750,144);
         getWorld().addObject(new ObjetoInanimado(false,33),660,144);
         
         getWorld().addObject(new ObjetoInanimado(false,9),700,270); //Mesa
@@ -205,5 +231,23 @@ public class FirstLevel extends Level
         getWorld().addObject(Zombie3A,512,180);
         getWorld().addObject(Zombie2A,730,180);
         getWorld().addObject(Zombie3B,270,280);
+    }
+    
+    public void checkWeaponInInventory() {
+        boolean BateIsIn = false;
+        boolean FlashlightIsIn = false;
+        
+        for (KeyObject inventoryObject : ((Game)getWorld()).player.getInventory()) {
+            
+            if(inventoryObject instanceof Bate)
+                BateIsIn = true;
+            else if(inventoryObject instanceof Flashlight)
+                FlashlightIsIn = true;
+        }
+        
+        if(BateIsIn)
+            ((Door)keyForniture.get(2)).setLocked(false);
+        else if(FlashlightIsIn)
+            ((Door)keyForniture.get(2)).setDescription(Dialogues.LINE_NO_BATE);
     }
 }
