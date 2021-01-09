@@ -26,12 +26,12 @@ public class Inventory extends Actor
             
             int X = this.getX()-140;
             int Y = this.getY()-70;
-            int limit = 0;
+            int limit = 1;
             
             for (int i = 0 ; i < temporalInventory.size() ; i++ , X+=70 , limit++) {
                 getWorld().addObject(temporalInventory.get(i),X,Y);
                 
-                if(limit == 4) {
+                if(limit == 5) {
                     limit = 0;
                     X = this.getX()-210;
                     Y+=70;

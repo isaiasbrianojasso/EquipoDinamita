@@ -2,9 +2,7 @@ import greenfoot.*;
 
 public class LittleSpider extends Spider
 {
-    private GreenfootSound bite = new GreenfootSound("./sounds/spider_bite.wav");
     private static int livingTime = 200;
-    private int searchingDelay = 0;
     private int livingTimeCounter = 0;
     
     public LittleSpider() {
@@ -44,43 +42,20 @@ public class LittleSpider extends Spider
         try {
             checkCollisions(20);
             searchPlayer();
-            walk();
+            walk(5);
         } catch(WallCollisionException Ex) {
             changeDirection();
         } catch(PlayerCollisionException Ex) {
             playerDamage();
+            Sounds.spiderBite();
             getWorld().removeObject(this);
         }
         checkTimeLiving();
     }
     
-    public void searchPlayer() {
-        
-        if(searchingDelay == 0 && ((Game)getWorld()).player.getY() < this.getY()) {
-            direction = CharacterDirection.UP;
-        }
-        
-        else if(searchingDelay == 15 && ((Game)getWorld()).player.getY() > this.getY()) {
-            direction = CharacterDirection.DOWN;
-        }
-        
-        else if(searchingDelay == 30 && ((Game)getWorld()).player.getX() < this.getX()) {
-            direction = CharacterDirection.LEFT;
-        }
-        
-        else if(searchingDelay == 45 && ((Game)getWorld()).player.getX() > this.getX()) {
-            direction = CharacterDirection.RIGHT;
-        }
-        
-        else if(searchingDelay == 50) {
-            searchingDelay = -1;
-        }
-        searchingDelay++;
-    }
-    
     public void checkTimeLiving() {
         if (livingTimeCounter == livingTime){
-            scream.play();
+            Sounds.spiderScream();
             getWorld().removeObject(this);
         }
         else

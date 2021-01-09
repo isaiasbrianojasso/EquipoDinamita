@@ -9,7 +9,7 @@ public class HUD extends Actor
     private int actualHudLife;
     private int actualHudBossLife;
     private TextBox textbox = new TextBox();
-    private List<Life> lives = new ArrayList<Life>();
+    private List<Life> playerLives = new ArrayList<Life>();
     private List<Life> bossLives = new ArrayList<Life>();
     
     public HUD(Player player) {
@@ -23,11 +23,11 @@ public class HUD extends Actor
         actualHudLife = TOTAL_LIVES;
         
         for(int i = 0 ; i < (actualHudLife/2) ; i++ )
-            lives.add(new Life(0));
+            playerLives.add(new Life(0));
         
         if(TOTAL_LIVES%2 != 0) {
-            lives.add(new Life(0));
-            (lives.get(actualHudLife/2)).setHalfHeart();
+            playerLives.add(new Life(0));
+            (playerLives.get(actualHudLife/2)).setHalfHeart();
         }
     }
     
@@ -39,8 +39,8 @@ public class HUD extends Actor
             bossLives.add(new Life(1));
         
         if(TOTAL_LIVES%2 != 0) {
-            lives.add(new Life(1));
-            (lives.get(actualHudBossLife/2)).setHalfHeart();
+            bossLives.add(new Life(1));
+            (bossLives.get(actualHudBossLife/2)).setHalfHeart();
         }
     }
     
@@ -48,7 +48,7 @@ public class HUD extends Actor
         int j = LIVES_X;
         int lives_spacing = 37;
         
-        for (Life life : lives) {
+        for (Life life : playerLives) {
             getWorld().addObject(life,j,LIVES_Y);
             j+=lives_spacing;
         }
@@ -74,21 +74,24 @@ public class HUD extends Actor
         setRoomName("???");
     }
     
-    public void updateLives(int playerLives) {
+    public void updateLives(int lives) {
         
-        if(playerLives%2 != 0) {
-            (lives.get(playerLives/2)).setHalfHeart();
+        if(actualHudLife < lives) {
             
-            if(lives.size() > (playerLives/2)+1)
-                (lives.get((playerLives/2)+1)).setVoidHeart();
+            while(actualHudLife != lives) {
+                (playerLives.get(actualHudLife/2)).setFullHeart();
+                actualHudLife++;
+            }
         }
         else {
-            if(playerLives < actualHudLife) {
-                (lives.get(playerLives/2)).setVoidHeart();
-            } else
-                (lives.get(actualHudLife/2)).setFullHeart();
+            while(actualHudLife != lives) {
+                actualHudLife--;
+                (playerLives.get((actualHudLife/2))).setVoidHeart();
+            }
         }
-        actualHudLife = playerLives;
+        
+        if(actualHudLife%2 != 0)
+            (playerLives.get(actualHudLife/2)).setHalfHeart();
     }
     
     public void updateBossLives(int lives) {

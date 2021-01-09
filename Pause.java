@@ -61,6 +61,8 @@ public class Pause extends Actor
                 clearPauseScreen();
             break;
             case 1:
+                Sounds.Stopfondo();
+                Sounds.StopPiano();
                 Greenfoot.setWorld (new Menu());
             break;
         }

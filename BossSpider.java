@@ -2,29 +2,24 @@ import greenfoot.*;
 
 public class BossSpider extends Spider
 {
-    private GreenfootSound hit = new GreenfootSound("./sounds/spider_hit.wav");
-    
     private boolean battleIsStarted = false;
     
-    private static int TOTAL_LIVES = 6;
+    private static int TOTAL_LIVES = 10;
     private int lives = TOTAL_LIVES;
     
     private boolean defeated = false;
     private boolean isOnTop = true;
     private boolean isVulnerable = false;
     private boolean isHitted = false;
-    private boolean playerIsHitted = false;
     
     private int limitTimeToAttack = Greenfoot.getRandomNumber(80)+40;
     private int limitTimeToAddAnotherSpider = 60;
     private int limitTimeVulnerable = 150;
-    private int limitTimeUntilPlayerIsHittedAgain = 100;
     private int limitNumberOfAttacks = 3;
     
     private int timeToAttackCounter = 0;
     private int timeToAddAnotherSpiderCounter = 0;
     private int timeVulnerableCounter = 0;
-    private int timeUntilPlayerIsHittedCounter = 0;
     private int numberOfAttacksCounter = 0;
     
     public BossSpider() {
@@ -50,8 +45,9 @@ public class BossSpider extends Spider
             try {
                 checkCollisions(60);
                 attack();
-                walk();
-                vulnerableCounter();
+                walk(5);
+                bossVulnerableCounter();
+                playerVulnerableCounter();
                 
             } catch (WallCollisionException Ex) {
                 checkWallsCollisions();
@@ -59,13 +55,14 @@ public class BossSpider extends Spider
             } catch (PlayerCollisionException Ex) {
                 if(!playerIsHitted && !isVulnerable) {
                     playerDamage();
+                    Sounds.spiderBite();
                     playerIsHitted = true;
                 }
                 else if(isVulnerable) {
                     hitCheck();
                 }
                 else
-                    walk();
+                    walk(5);
                 
             } catch (VulnerableEnemyException Ex) {
                 standBy();
@@ -98,14 +95,14 @@ public class BossSpider extends Spider
             isOnTop = true;
             timeToAttackCounter = 0;
             limitTimeToAttack = Greenfoot.getRandomNumber(80)+40;
-            direction = CharacterDirection.getRandomSidesDirection();
+            direction = CharacterDirection.getRandomSidesDirectionLR();
             numberOfAttacksCounter++;
             
         } else if(direction == CharacterDirection.DOWN) {
             isOnTop = false;
             timeToAttackCounter = 0;
             limitTimeToAttack = Greenfoot.getRandomNumber(80)+40;
-            direction = CharacterDirection.getRandomSidesDirection();
+            direction = CharacterDirection.getRandomSidesDirectionLR();
             numberOfAttacksCounter++;
             
         } else
@@ -137,8 +134,8 @@ public class BossSpider extends Spider
             isHitted = true;
             lives--;
             ((Game)getWorld()).hud.updateBossLives(lives);
-            hit.play();
-            scream.play();
+            Sounds.hit();
+            Sounds.spiderScream();
         }
     }
     
@@ -151,15 +148,7 @@ public class BossSpider extends Spider
            timeToAddAnotherSpiderCounter++;
     }
     
-    public void vulnerableCounter() {
-        if(playerIsHitted && timeUntilPlayerIsHittedCounter != limitTimeUntilPlayerIsHittedAgain) {
-            timeUntilPlayerIsHittedCounter++;
-        }
-        else if (timeUntilPlayerIsHittedCounter == limitTimeUntilPlayerIsHittedAgain){
-            timeUntilPlayerIsHittedCounter = 0;
-            playerIsHitted = false;
-        }
-        
+    public void bossVulnerableCounter() {
         if(isHitted && timeVulnerableCounter != limitTimeVulnerable) {
             timeVulnerableCounter++;
         }
@@ -171,8 +160,10 @@ public class BossSpider extends Spider
     }
     
     public void startBattle() {
+        Sounds.Stopfondo();
+        Sounds.spider_background();
         Greenfoot.delay(50);
-        scream.play();
+        Sounds.spiderScream();
         setImage(spritesExtra[2]);
         Greenfoot.delay(100);
         battleIsStarted = true;
@@ -181,7 +172,7 @@ public class BossSpider extends Spider
     public void finishBattle() {
         
         Greenfoot.delay(100);
-        scream.play();
+        Sounds.spiderScream();
         
         if(direction == CharacterDirection.UP)
             setImage(spritesExtra[4]);
@@ -191,6 +182,8 @@ public class BossSpider extends Spider
         Greenfoot.delay(100);
         defeated = true;
         ((Game)getWorld()).hud.clearBossLives();
+        Sounds.Stopspider_background();
+        Sounds.fondo();
         getWorld().removeObject(this);
     }
     

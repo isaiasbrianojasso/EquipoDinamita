@@ -1,15 +1,5 @@
 #BlueJ class context
 comment0.target=Spider
 comment1.params=
-comment1.target=void\ walk()
-comment2.params=
-comment2.target=void\ changeSprite()
-comment3.params=
-comment3.target=void\ move()
-comment4.params=
-comment4.target=void\ changeDirection()
-comment5.params=distance
-comment5.target=void\ checkCollisions(int)
-comment6.params=
-comment6.target=void\ playerDamage()
-numComments=7
+comment1.target=Spider()
+numComments=2
