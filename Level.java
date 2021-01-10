@@ -4,8 +4,13 @@ import java.util.*;
 public abstract class Level extends Actor
 {
     protected List<Forniture> keyForniture = new ArrayList<Forniture>();
+    protected String roomName;
     private int i;
     private int j;
+    
+    public String getRoomName() {
+        return roomName;
+    }
     
     public void setRoom(int X,int Y,int colorWall,int floorType) {
         

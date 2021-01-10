@@ -27,5 +27,5 @@ public class Floor extends Actor
                 setImage(ROCKS);
             break;
         }
-    }   
+    }
 }

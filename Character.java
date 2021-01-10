@@ -9,7 +9,6 @@ public abstract class Character extends Actor
     protected int speed;
     protected int advance;
     protected String name;
-    protected TextBox textBox;
 
     protected CharacterDirection direction;
 

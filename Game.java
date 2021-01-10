@@ -7,11 +7,12 @@ public class Game extends World
     private FirstLevel firstLevel = new FirstLevel();
     private SecondLevel secondLevel = new SecondLevel();
     private ThirdLevel thirdLevel = new ThirdLevel();
+    private HUD hud = new HUD(player);
 
     public Game()
     {
         super(1024, 480, 1);
-        setActOrder(Floor.class,Wall.class,Forniture.class,Character.class);
+        setActOrder(Floor.class,Wall.class,Forniture.class,Character.class,HUD.class);
         prepare();
         act();
     }
@@ -23,6 +24,7 @@ public class Game extends World
         background.fill();
         setBackground(background);
 
+        addObject(hud,0,0);
         addObject(basement,0,0);
         addObject(firstLevel,0,0);
         addObject(secondLevel,0,0);
@@ -30,6 +32,7 @@ public class Game extends World
         addObject(player,getWidth()/2,getHeight()/2);
 
         thirdLevel.setHall();
+        hud.setHud();
         
     }
 
@@ -43,63 +46,82 @@ public class Game extends World
         switch(destinationRoom) {
             case 'a':
                 thirdLevel.setHall();
+                hud.setRoomName(thirdLevel.getRoomName());
             break;
             case 'b':
                 thirdLevel.setRoomOne();
+                hud.setRoomName(thirdLevel.getRoomName());
             break;
             case 'c':
                 thirdLevel.setRoomTwo();
+                hud.setRoomName(thirdLevel.getRoomName());
             break;
             case 'd':
                 thirdLevel.setRoomFour();
+                hud.setRoomName(thirdLevel.getRoomName());
             break;
             case 'e':
                 thirdLevel.setRoomSeven();
+                hud.setRoomName(thirdLevel.getRoomName());
             break;
             case 'f':
                 thirdLevel.setLibrary();
+                hud.setRoomName(thirdLevel.getRoomName());
             break;
             case 'g':
                 thirdLevel.setRoomTen();
+                hud.setRoomName(thirdLevel.getRoomName());
             break;
             case 'h':
                 thirdLevel.setRoomTwelve();
+                hud.setRoomName(thirdLevel.getRoomName());
             break;
             case 'i':
                 thirdLevel.setBathroomTwo();
+                hud.setRoomName(thirdLevel.getRoomName());
             break;
             case 'j':
                 thirdLevel.setBathroomSeven();
+                hud.setRoomName(thirdLevel.getRoomName());
             break;
             case 'k':
                 thirdLevel.setClosetSeven();
+                hud.setRoomName(thirdLevel.getRoomName());
             break;
             case 'l':
                 thirdLevel.setClosetTwelve();
+                hud.setRoomName(thirdLevel.getRoomName());
             break;
             
             case 'm':
                 firstLevel.setLobby();
+                hud.setRoomName(firstLevel.getRoomName());
             break;
             case 'n':
                 firstLevel.setEastHall();
+                hud.setRoomName(firstLevel.getRoomName());
             break;
             case 'o':
                 firstLevel.setWestHall();
+                hud.setRoomName(firstLevel.getRoomName());
             break;
             case 'p':
                 firstLevel.setDinningRoom();
+                hud.setRoomName(firstLevel.getRoomName());
             break;
             case 'q':
                 firstLevel.setKitchen();
+                hud.setRoomName(firstLevel.getRoomName());
             break;
             case 'r':
                 secondLevel.setUniqueRoom();
+                hud.setRoomName(secondLevel.getRoomName());
             break;
             case 's':
                 player.setDirection(CharacterDirection.LEFT);
                 player.setOriginalPosition();
                 basement.setBasement();
+                hud.setRoomName(basement.getRoomName());
             break;
         }
         player.setLocation(destinationX,destinationY);

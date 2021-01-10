@@ -8,6 +8,9 @@ public class SecondLevel extends Level
     }
     
     public void setUniqueRoom() {
+        
+        roomName = "HABITACION ???";
+        
         setRoom(287,118,1,1);
         
         Door door = new Door("PUERTA",0,1);

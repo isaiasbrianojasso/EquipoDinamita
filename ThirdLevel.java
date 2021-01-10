@@ -34,6 +34,8 @@ public class ThirdLevel extends Level
     
     public void setLibrary() {
         
+        roomName = "BIBLIOTECA";
+        
         setRoom(159,86,1,1);
         
         getWorld().addObject(keyForniture.get(4),500,200);
@@ -42,13 +44,11 @@ public class ThirdLevel extends Level
         Door door9A = new Door("PUERTA 09",0,0);
         door9A.setLocked(true);
         getWorld().addObject(door9A,673,103);
-        
-        getWorld().addObject(new Stool(),335,200);
-        getWorld().addObject(new Stool(),360,175);
-        getWorld().addObject(new Stool(),385,200);
     }
     
     public void setHall() {
+        
+        roomName = "PASILLO 3ER PISO";
         
         setRoom(63,183,0,0);
         
@@ -111,6 +111,9 @@ public class ThirdLevel extends Level
     }
     
     public void setRoomOne() {
+        
+        roomName = "HABITACION 01";
+        
         setRoom(287,118,1,1);
         
         Door door1B = new Door("PUERTA 01",0,2);
@@ -131,6 +134,9 @@ public class ThirdLevel extends Level
     }
     
     public void setRoomTwo() {
+        
+        roomName = "HABITACION 02";
+        
         setRoom(287,118,1,1);
         
         Door door2B = new Door("PUERTA 02",0,2);
@@ -147,6 +153,9 @@ public class ThirdLevel extends Level
     }
     
     public void setBathroomTwo() {
+        
+        roomName = "BAÑO 02";
+        
         setRoom(415,180,2,2);
         
         Door door2C = new Door("PUERTA 02",0,2);
@@ -155,6 +164,9 @@ public class ThirdLevel extends Level
     }
     
     public void setRoomFour() {
+        
+        roomName = "HABITACION 04";
+        
         setRoom(287,118,1,1);
         
         Door door4B = new Door("PUERTA 04",0,2);
@@ -171,6 +183,9 @@ public class ThirdLevel extends Level
     }
     
     public void setRoomSeven() {
+        
+        roomName = "HABITACION 07";
+        
         setRoom(287,118,1,1);
         
         Door door7B = new Door("PUERTA 07",0,0);
@@ -187,6 +202,9 @@ public class ThirdLevel extends Level
     }
     
     public void setBathroomSeven() {
+        
+        roomName = "BAÑO 07";
+        
         setRoom(415,180,2,2);
         
         Door door7C = new Door("PUERTA 07",0,0);
@@ -195,6 +213,9 @@ public class ThirdLevel extends Level
     }
     
     public void setClosetSeven() {
+        
+        roomName = "ARMARIO 07";
+        
         setRoom(415,180,2,2);
         
         Door door7D = new Door("PUERTA 07",0,0);
@@ -203,6 +224,9 @@ public class ThirdLevel extends Level
     }
     
     public void setRoomTen() {
+        
+        roomName = "HABITACION 10";
+        
         setRoom(287,118,1,1);
         
         Door door10B = new Door("PUERTA 10",0,0);
@@ -219,6 +243,9 @@ public class ThirdLevel extends Level
     }
     
     public void setRoomTwelve() {
+        
+        roomName = "HABITACION 12";
+        
         setRoom(287,118,3,3);
         
         Door door12B = new Door("PUERTA 12",0,0);
@@ -235,6 +262,9 @@ public class ThirdLevel extends Level
     }
     
     public void setClosetTwelve() {
+        
+        roomName = "ARMARIO 12";
+        
         setRoom(415,180,3,3);
         
         Door door12C = new Door("PUERTA 12",0,0);

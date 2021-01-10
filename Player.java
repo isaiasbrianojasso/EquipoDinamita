@@ -40,6 +40,14 @@ public class Player extends Character
         setOriginalPosition();
     }
     
+    public int getInitialLives() {
+        return INITIAL_LIVES;
+    }
+    
+    public int getLives() {
+        return lives;
+    }
+    
     public void act() {
         try {
             checkKeyPressed();

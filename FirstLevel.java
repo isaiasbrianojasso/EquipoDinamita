@@ -19,6 +19,8 @@ public class FirstLevel extends Level
     
     public void setLobby() {
         
+        roomName = "SALON PRINCIPAL";
+        
         setRoom(159,53,3,1);
         
         Door doorEA = new Door("SALA ESTE",0,1);
@@ -31,6 +33,8 @@ public class FirstLevel extends Level
     }
     
     public void setEastHall() {
+        
+        roomName = "PASILLO ESTE 1ER PISO";
         
         setRoom(255,183,0,0);
         
@@ -55,6 +59,8 @@ public class FirstLevel extends Level
     }
     
     public void setWestHall() {
+        
+        roomName = "PASILLO OESTE 1ER PISO";
         
         setRoom(255,183,0,0);
         
@@ -87,6 +93,8 @@ public class FirstLevel extends Level
     
     public void setDinningRoom() {
         
+        roomName = "COMEDOR";
+        
         setRoom(255,119,3,3);
         
         Door doorDinningRoom1B = new Door("COMEDOR",0,0);
@@ -99,6 +107,8 @@ public class FirstLevel extends Level
     }
     
     public void setKitchen() {
+        
+        roomName = "COCINA";
         
         setRoom(255,119,2,2);
         

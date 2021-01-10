@@ -10,7 +10,7 @@ public class KeyObject extends Actor
         this.description = description;
     }
     
-    public void detDesfaultDescription() {
+    public void setDefaultDescription() {
         description = DEFAULT_DESCRIPTION;
     }
     

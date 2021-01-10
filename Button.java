@@ -2,7 +2,7 @@ import greenfoot.*;
 
 public abstract class Button extends Actor
 {
-    private GreenfootImage button[] = new GreenfootImage[2];
+    protected GreenfootImage button[] = new GreenfootImage[2];
     protected boolean buttonPressed;
     protected boolean buttonActive;
     

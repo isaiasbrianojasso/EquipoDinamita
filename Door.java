@@ -62,7 +62,7 @@ public class Door extends Forniture
                 locked = false;
                 closed = false;
                 openedDoorType();
-                textbox.displayDescription("  ","Abrió!");
+                textbox.displayDescription("  ","Funcionó!");
             }
             catch (NoElementInTheInventoryException Ex) {
                 textbox.displayDescription(doorNumber,description);
@@ -88,11 +88,14 @@ public class Door extends Forniture
     public void searchTheKey(List<KeyObject> inventory) throws NoElementInTheInventoryException{
         
         boolean found = false;
+        int index = 0;
         
         for (KeyObject keyObject : inventory) {
             if(keyObject instanceof Key && ((Key)keyObject).getNumber().equals(doorNumber)) {
                 found = true;
+                break;
             }
+            index++;
         }
         
         if(!found) {
