@@ -1,14 +1,9 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
-/**
- * Write a description of class Temporal here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
-public class Temporal extends Actor
+public class Temporal
 {
-     String tiempo;
+    String tiempo;
+    
     public Temporal(String tiempo){
         this.tiempo=tiempo;
     }

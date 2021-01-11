@@ -3,7 +3,6 @@ import java.util.*;
 
 public class Menu extends World
 {
-    private GreenfootSound sound = new GreenfootSound("./sounds/Ouija A.wav");
     private SelectLight options = new SelectLight(1);
     private int option;
     
@@ -29,15 +28,14 @@ public class Menu extends World
         
         showText("NUEVA PARTIDA", getWidth()/2,(getHeight()/2)+50);
         showText("RECORDS", getWidth()/2,(getHeight()/2)+100);
-        showText("CONTROLES", getWidth()/2,(getHeight()/2)+150);
+        showText("INFORMACION", getWidth()/2,(getHeight()/2)+150);
         
         option = 0;
+        Sounds.fondo();
     }
 
     public void act()
     {
-        //sound.playLoop();
-        
         if(Greenfoot.isKeyDown(Keys.DOWN)) {
             option++;
             if(option == 3) {option = 0;}
@@ -69,6 +67,7 @@ public class Menu extends World
     public void executeOption() {
         switch(option) {
             case 0:
+                Sounds.Stopfondo();
                 Greenfoot.setWorld (new Game());
             break;
             case 1:

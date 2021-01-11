@@ -1,28 +1,18 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 import java.util.*;
 import java.io.*;
-import java.util.ArrayList;
-/**
- * Write a description of class Record here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
-public class Record extends Actor
+
+public class Record
 {
     private File file;
     private FileWriter escritor;
     private BufferedWriter bufer;
     private PrintWriter salida;
-    private ArrayList<Player>  records;
-   private  ArrayList<Temporal> temp= new ArrayList<Temporal>() ;
+    private ArrayList<Temporal> temp= new ArrayList<Temporal>() ;
     
-
     public  Record()
     {
-        records = new ArrayList<Player>();
-        file = new File ("/Users/joseisaiasbrianojasso 1/Desktop/Records.txt");
+        file = new File ("Records.txt");
         if(!file.exists()){
             try{
                 file.createNewFile();
@@ -44,24 +34,14 @@ public class Record extends Actor
             s = new PrintWriter(bw);
 
             for(Temporal i : temp)
-            {
                 s.println(i.tiempo);
-                //System.out.println(i.tiempo);
-            }
+            
             s.close();
             bw.close();
         }catch(IOException e){}
 
     }
-   public void muestra_record(){
-     
-     for(Temporal i : temp)
-            {
-                
-                System.out.println(i.tiempo);
-            }
     
-    }
     private void leeRecords(){
 
         Temporal persona;
@@ -70,6 +50,7 @@ public class Record extends Actor
         String texto = "";
         FileReader lector = null;
         String linea = "";
+        
         try {
             lector = new FileReader(file);
             BufferedReader bl = new BufferedReader(lector);
@@ -77,9 +58,8 @@ public class Record extends Actor
                 persona = new Temporal();
                 texto = linea;
                 persona.setTiempo(texto);
-                //System.out.println(texto);
                 temp.add(persona);
-            }   
+            }
 
         } catch (IOException e) {
 
@@ -95,9 +75,25 @@ public class Record extends Actor
 
     }
 
-    public void add(Temporal p){        
-        temp.add(p);
-        //this.escribeRecords();
+    public void add(Temporal newRecord){
+        boolean isAdded = false;
+        int index = 1;
+        
+        for(Temporal record : temp) {
+            if(Integer.parseInt((newRecord.getTiempo()).replaceAll(":","")) < Integer.parseInt((record.getTiempo()).replaceAll(":",""))) {
+                temp.add(index,newRecord);
+                isAdded = true;
+                break;
+            }
+            index++;
+        }
+        
+        if(!isAdded && temp.size() < 5)
+            temp.add(newRecord);
+    }
+    
+    public void checkAdd(int index, Temporal newRecord) {
+        
     }
 
     public ArrayList<Temporal> escribeTabla(){

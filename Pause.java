@@ -39,6 +39,7 @@ public class Pause extends Actor
             Greenfoot.delay(1);
         }
         
+        clearPauseScreen();
         Greenfoot.delay(10);
     }
     
@@ -60,6 +61,9 @@ public class Pause extends Actor
                 clearPauseScreen();
             break;
             case 1:
+                Sounds.Stopfondo();
+                Sounds.StopPiano();
+                Sounds.Stopspider_background();
                 Greenfoot.setWorld (new Menu());
             break;
         }
