@@ -8,10 +8,10 @@ public class ThirdLevel extends Level
     //   public Enemigo fantasma1 = new Enemigo(2,2);
     //    public Enemigo fantasma2 = new Enemigo(2,2);
     //  public Enemigo fantasma3 = new Enemigo(2,2);
-
     public ThirdLevel() {
         setImage(new GreenfootImage(1,1));
         Sounds.fondo();        
+ 
 
         Door door1A = new Door("PUERTA 01",0,0);
         door1A.setDestination('b',512,365);
@@ -171,8 +171,8 @@ public class ThirdLevel extends Level
         getWorld().addObject(new ObjetoInanimado(false,3),750,135);//maceta1
         getWorld().addObject(new ObjetoInanimado(false,4),750,380);//maceta2
         getWorld().addObject(new ObjetoInanimado(false,25),400,115);//cuadro
-        getWorld().addObject(new ObjetoInanimado(false,15),480,170);//sillon_1
-        getWorld().addObject(new ObjetoInanimado(false,16),400,170);//sillon_2
+        //getWorld().addObject(new ObjetoInanimado(false,15),480,170);//sillon_1
+       // getWorld().addObject(new ObjetoInanimado(false,16),510,170);//sillon_2
         getWorld().addObject(new ObjetoInanimado(true,5),460,280);//Mesa_1
 
         getWorld().addObject(zombie1,500,200);//maceta2

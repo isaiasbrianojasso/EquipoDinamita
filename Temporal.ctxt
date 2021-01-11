@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=Temporal
+comment0.text=\n\ Write\ a\ description\ of\ class\ Temporal\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=tiempo
+comment1.target=Temporal(java.lang.String)
+comment2.params=
+comment2.target=Temporal()
+comment3.params=tiempo
+comment3.target=void\ setTiempo(java.lang.String)
+comment4.params=
+comment4.target=java.lang.String\ getTiempo()
+numComments=5

@@ -172,7 +172,8 @@ public abstract class Character extends Actor
             // Player.removeLife(2);
             throw new WallCollisionException();
         }else if(player != null) {
-            // Player.removeLife(2);
+          
+            new Timer();
             throw new PlayerCollisionException();
         }
 

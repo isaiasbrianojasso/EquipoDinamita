@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.*;
 
 /**
  * Write a description of class Enemigo here.
@@ -11,6 +12,7 @@ public class Enemigo extends Character
 {
     private  int contador=100;
     private  int normal=0;
+    private  String tiempo;
     public Enemigo(int opcion,int comogustes)
     {
         normal=comogustes;
@@ -18,7 +20,7 @@ public class Enemigo extends Character
         switch(opcion){
             case 1:
             name = "zombie";
-                   Sounds.zombie_fondo();  
+            Sounds.zombie_fondo();  
 
             spritesRight[0] = new GreenfootImage("./images/characters/zombie_derecha_2.png");
             spritesRight[1] = new GreenfootImage("./images/characters/zombie_derecha_1.png");
@@ -41,7 +43,7 @@ public class Enemigo extends Character
             break;
 
             case 2:
-                               Sounds.fantasma_lamento();  
+            Sounds.fantasma_lamento();  
 
             name = "fantasma";
             spritesRight[0] = new GreenfootImage("./images/characters/fantasma_derecha_2.png");
@@ -68,8 +70,8 @@ public class Enemigo extends Character
             break;
 
             case 3:
-      name = "zombie2";
-                         Sounds.zombie_fondo();  
+            name = "zombie2";
+            Sounds.zombie_fondo();  
 
             spritesRight[0] = new GreenfootImage("./images/characters/zombie2_derecha_2.png");
             spritesRight[1] = new GreenfootImage("./images/characters/zombie2_derecha_1.png");
@@ -89,9 +91,9 @@ public class Enemigo extends Character
             spritesLeft[3] = new GreenfootImage("./images/characters/zombie2_izquierda_3.png");
             setOriginalPosition();
             break;
-           case 4:
-                 name = "zombie3";
-                                    Sounds.zombie_fondo();  
+            case 4:
+            name = "zombie3";
+            Sounds.zombie_fondo();  
 
             spritesRight[0] = new GreenfootImage("./images/characters/zombie3_derecha_2.png");
             spritesRight[1] = new GreenfootImage("./images/characters/zombie3_derecha_1.png");
@@ -110,7 +112,7 @@ public class Enemigo extends Character
             spritesLeft[2] = new GreenfootImage("./images/characters/zombie3_izquierda_2.png");
             spritesLeft[3] = new GreenfootImage("./images/characters/zombie3_izquierda_3.png");
             setOriginalPosition();
-           break;
+            break;
 
         }
     }
@@ -180,13 +182,22 @@ public class Enemigo extends Character
         }
         catch(PlayerCollisionException Ex) {
             if(((Game)getWorld()).player.getLives()>0){
-                ((Game)getWorld()).player.removeLife(1);
+                ((Game)getWorld()).player.removeLife(2);
                 ((Game)getWorld()).hud.updateLives(((Game)getWorld()).player.getLives());
-                ((Game)getWorld()).player.setCoordenadas(getX(),getY()-80);
-                 Sounds.zombie_mordida();        
+                ((Game)getWorld()).player.setCoordenadas(getX()-10,getY()-10);
+                Sounds.zombie_mordida();        
 
             }else{
-                //gameover
+                tiempo = Timer.stop();
+
+                Record rec =new Record();
+                Temporal comogustes=new Temporal(tiempo);
+                rec.add(comogustes);
+                rec.muestra_record();
+
+                rec.escribeRecords();
+                GameOver g=new GameOver();
+                Greenfoot.setWorld( g);
 
             }
 

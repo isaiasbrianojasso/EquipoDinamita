@@ -10,6 +10,7 @@ public class Game extends World
     private ThirdLevel thirdLevel = new ThirdLevel();
     private Inventory inventory = new Inventory();
     private Pause pause = new Pause();
+    private Timer timer = new Timer();
 
     public Game()
     {
@@ -17,6 +18,7 @@ public class Game extends World
         setActOrder(Floor.class,Wall.class,Forniture.class,Character.class,Spider.class,Inventory.class,Pause.class,SelectLight.class,KeyObject.class,TextBox.class,HUD.class);
         prepare();
         act();
+        
     }
 
     public void prepare() {
@@ -32,6 +34,7 @@ public class Game extends World
         addObject(secondLevel,0,0);
         addObject(thirdLevel,0,0);
         addObject(player,getWidth()/2,getHeight()/2);
+        addObject(timer,50,50);
 
         thirdLevel.setHall();
         hud.setHud();

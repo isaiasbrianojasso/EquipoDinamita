@@ -134,7 +134,7 @@ public void setCoordenadas(int x,int y){
             if (isTouching(Enemigo.class))
             {
                 removeLife(1);
-                //getWorld.showText("F",500,500);
+                    //getWorld.showText("F",500,500);
             }
             collisionObject.isMovable();
             collisionObject.checkCollisions(direction);
