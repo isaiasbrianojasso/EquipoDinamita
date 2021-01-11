@@ -1,103 +1,51 @@
 import greenfoot.*;
 import java.util.*;
 import java.io.*;
+import java.nio.file.*;
 
 public class Record
 {
-    private File file;
-    private FileWriter escritor;
-    private BufferedWriter bufer;
-    private PrintWriter salida;
-    private ArrayList<Temporal> temp= new ArrayList<Temporal>() ;
+    private List<String> recordsList;
     
-    public  Record()
+    public Record()
     {
-        file = new File ("Records.txt");
-        if(!file.exists()){
-            try{
-                file.createNewFile();
-            }catch(IOException ex){}
-        }
-        else {
-            this.leeRecords();
-        }
-    }
- 
-    public void escribeRecords(){
-        PrintWriter escritor;
-        String num;
-        BufferedWriter bw;
-        PrintWriter s;
-        try{
-            escritor = new PrintWriter(file);
-            bw = new BufferedWriter(escritor);
-            s = new PrintWriter(bw);
-
-            for(Temporal i : temp)
-                s.println(i.tiempo);
-            
-            s.close();
-            bw.close();
-        }catch(IOException e){}
-
-    }
-    
-    private void leeRecords(){
-
-        Temporal persona;
-        String nombre = "";
-        int puntos = 0;
-        String texto = "";
-        FileReader lector = null;
-        String linea = "";
-        
         try {
-            lector = new FileReader(file);
-            BufferedReader bl = new BufferedReader(lector);
-            while ((linea = bl.readLine()) != null) {
-                persona = new Temporal();
-                texto = linea;
-                persona.setTiempo(texto);
-                temp.add(persona);
-            }
-
-        } catch (IOException e) {
-
-        } finally {
-            if (lector != null) {
-                try {
-                    lector.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
+            recordsList = Files.readAllLines(Paths.get("Records.txt"));
+        } catch(IOException Ex) {
+            recordsList = new ArrayList<String>();
         }
-
     }
 
-    public void add(Temporal newRecord){
+    public void escribeRecords(){
+        try (BufferedWriter writer = Files.newBufferedWriter(Paths.get("Records.txt"))) {
+            for(String recordLine : recordsList) {
+                writer.write(recordLine);
+                writer.newLine();
+            }
+        } catch(IOException Ex) {
+            System.out.println("Error saving records");
+        }
+    }
+
+    public void add(String newRecord){
         boolean isAdded = false;
         int index = 1;
         
-        for(Temporal record : temp) {
-            if(Integer.parseInt((newRecord.getTiempo()).replaceAll(":","")) < Integer.parseInt((record.getTiempo()).replaceAll(":",""))) {
-                temp.add(index,newRecord);
+        for(String record : recordsList) {
+            if(Integer.parseInt((newRecord.replaceAll(":",""))) < Integer.parseInt(record.replaceAll(":",""))) {
+                recordsList.add(index-1,newRecord);
                 isAdded = true;
                 break;
             }
             index++;
         }
         
-        if(!isAdded && temp.size() < 5)
-            temp.add(newRecord);
-    }
-    
-    public void checkAdd(int index, Temporal newRecord) {
-        
+        if(!isAdded && recordsList.size() < 5)
+            recordsList.add(newRecord);
     }
 
-    public ArrayList<Temporal> escribeTabla(){
-        return temp;
+    public List<String> getList(){
+        return recordsList;
     }
 
 }

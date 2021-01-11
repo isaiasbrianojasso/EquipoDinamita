@@ -2,7 +2,7 @@ import greenfoot.*;
 
 public class Records extends World
 {
-    Record Act=new Record();
+    private Record recordsList = new Record();
     
     public Records()
     {   
@@ -27,9 +27,9 @@ public class Records extends World
     public void escribeRecords(){
         int y1 = 230;
         int i = 1;
-        for(Temporal aux : Act.escribeTabla())
+        for(String aux : recordsList.getList())
         {
-            showText(Integer.toString(i) + ".-  " + aux.getTiempo(),getWidth()/2,y1);
+            showText(Integer.toString(i) + ".-  " + aux,getWidth()/2,y1);
             y1 = y1 + 30;
             i++;
         }

@@ -26,10 +26,9 @@ public class GameOver extends Actor
         
         if(((Game)getWorld()).player.getLives() != 0) {
             Record rec =new Record();
-            rec.add(new Temporal(((Game)getWorld()).hud.stop()));
+            rec.add(((Game)getWorld()).hud.stop());
             rec.escribeRecords();
         }
-        
         
         Greenfoot.setWorld (new Menu());
     }

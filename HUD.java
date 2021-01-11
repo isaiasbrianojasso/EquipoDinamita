@@ -4,7 +4,6 @@ import java.util.*;
 public class HUD extends Actor
 {
     private int timer = 0;
-    private static int hora;
     private static int minuto;
     private static int segundos;
     private final int LIVES_X = 50;
@@ -20,7 +19,6 @@ public class HUD extends Actor
         setImage(new GreenfootImage(1,1));
         TOTAL_LIVES = player.getInitialLives();
         initializeLives();
-        hora = 0;
         minuto = 0;
         segundos = 0;
     }
@@ -35,12 +33,12 @@ public class HUD extends Actor
                 segundos=0;
             }
             if(minuto>=60){
-                hora++;
                 minuto=0;
             }
             timer=0;
         }
-        getWorld().showText(""+hora+":"+minuto+":"+segundos,900, 100);
+        
+        printTimer();
     }
     
     public void initializeLives() {
@@ -137,7 +135,22 @@ public class HUD extends Actor
         }
     }
     
+    public void printTimer() {
+        
+        if(minuto < 10 && segundos < 10)
+            getWorld().showText("0"+minuto+":0"+segundos,860,80);
+        else if(segundos > 10 && minuto < 10)
+            getWorld().showText("0"+minuto+":"+segundos,860,80);
+        else
+            getWorld().showText("0"+minuto+":"+segundos,860,80);
+    }
+    
     public String stop() {
-        return hora+":"+minuto+":"+segundos;
+        
+        if(minuto < 10 && segundos < 10)
+            return("0"+minuto+":0"+segundos);
+        else if(segundos > 10 && minuto < 10)
+            return("0"+minuto+":"+segundos);
+        return("0"+minuto+":"+segundos);
     }
 }
