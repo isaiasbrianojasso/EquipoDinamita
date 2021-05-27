@@ -10,4 +10,6 @@ comment4.params=destinationRoom\ destinationX\ destinationY
 comment4.target=void\ changeRoom(char,\ int,\ int)
 comment5.params=
 comment5.target=void\ eraseRoom()
-numComments=6
+comment6.params=
+comment6.target=void\ showInventory()
+numComments=7

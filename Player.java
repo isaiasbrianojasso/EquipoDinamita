@@ -11,6 +11,7 @@ public class Player extends Character
     private List<KeyObject> inventory = new ArrayList<KeyObject>();
 
     public Player() {
+        
         lives = INITIAL_LIVES;
         speed = INITIAL_SPEED;
         advance = INITIAL_ADVANCE;
@@ -48,6 +49,30 @@ public class Player extends Character
         return lives;
     }
     
+    public void addLife(int cure) {
+        lives+=cure;
+        if(lives > INITIAL_LIVES)
+            lives = INITIAL_LIVES;
+    }
+    
+    public void removeLife(int damage) {
+        lives = lives-damage;
+        if(lives < 0)
+            lives = 0;
+    }
+    
+    public void removeItem(int index) {
+        inventory.remove(index);
+    }
+    
+    public List<KeyObject> getInventory() {
+        return inventory;
+    }
+    
+    public void restartLives() {
+        lives = INITIAL_LIVES;
+    }
+    
     public void act() {
         try {
             checkKeyPressed();
@@ -80,16 +105,16 @@ public class Player extends Character
     }
     
     public void checkKeyPressed() throws NoKeyPressedException{
-        if(Greenfoot.isKeyDown("left")) {
+        if(Greenfoot.isKeyDown(Keys.LEFT)) {
             setDirection(CharacterDirection.LEFT);
         }
-        else if(Greenfoot.isKeyDown("right")) {
+        else if(Greenfoot.isKeyDown(Keys.RIGHT)) {
             setDirection(CharacterDirection.RIGHT);
         }
-        else if(Greenfoot.isKeyDown("up")) {
+        else if(Greenfoot.isKeyDown(Keys.UP)) {
             setDirection(CharacterDirection.UP);
         }
-        else if(Greenfoot.isKeyDown("down")) {
+        else if(Greenfoot.isKeyDown(Keys.DOWN)) {
             setDirection(CharacterDirection.DOWN);
         }
         else {
@@ -98,7 +123,7 @@ public class Player extends Character
     }
     
     public void checkRunKey() {
-        if(Greenfoot.isKeyDown("c")) {
+        if(Greenfoot.isKeyDown(Keys.RUN)) {
             speed = STAMINA_SPEED;
         } else {
             speed = INITIAL_SPEED;
@@ -114,7 +139,7 @@ public class Player extends Character
         }
         catch(NoMovableObjectException Ex) {
             advance = 0;
-            if(Greenfoot.isKeyDown("x")) {
+            if(Greenfoot.isKeyDown(Keys.CONFIRMATION)) {
                 checkDoor();
             }
         }
@@ -127,9 +152,9 @@ public class Player extends Character
         if(collisionObject instanceof Door) {
             ((Door)collisionObject).tryToOpen(inventory);
         } else {
-            collisionObject.receiveObject();
+            collisionObject.receiveObject(inventory.size());
             
-            if(collisionObject.getObject() != null) {
+            if(inventory.size() < 20 && collisionObject.getObject() != null) {
                 
                 inventory.add(collisionObject.getObject());
                 collisionObject.setObject(null);

@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.target=ObjetoInanimado
+comment1.params=movable\ opcion
+comment1.target=ObjetoInanimado(boolean,\ int)
+numComments=2

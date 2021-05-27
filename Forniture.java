@@ -82,17 +82,25 @@ public abstract class Forniture extends Actor
         }
     }
 
-    public void receiveObject() {
+    public void receiveObject(int size) {
         
         getWorld().addObject(textbox,getWorld().getWidth()/2,400);
         textbox.displayDescription("  ",description);
         
-        if(object != null) {
+        if(object != null && size < 20) {
             textbox.receiveObject(object);
             description = DEFAULT_DESCRIPTION;
+        } else if (object != null && size == 20) {
+            fullInventory();
         }
         
         getWorld().removeObject(textbox);
         Greenfoot.delay(10);
+    }
+    
+    public void fullInventory() {
+        getWorld().removeObject(textbox);
+        getWorld().addObject(textbox,getWorld().getWidth()/2,400);
+        textbox.displayDescription("  ",Dialogues.LINE_FULL_INVENTORY);
     }
 }

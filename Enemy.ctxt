@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=Enemy
+comment1.params=limit
+comment1.target=void\ walk(int)
+comment2.params=
+comment2.target=void\ move()
+comment3.params=
+comment3.target=void\ changeDirection()
+comment4.params=
+comment4.target=void\ changeSprite()
+comment5.params=distance
+comment5.target=void\ checkCollisions(int)
+comment6.params=
+comment6.target=void\ evadeObject()
+comment7.params=
+comment7.target=void\ searchPlayer()
+comment8.params=
+comment8.target=void\ playerDamage()
+comment9.params=
+comment9.target=void\ playerVulnerableCounter()
+numComments=10

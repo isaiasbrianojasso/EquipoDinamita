@@ -13,5 +13,5 @@ comment5.target=void\ showText(java.lang.String,\ java.lang.String)
 comment6.params=
 comment6.target=void\ eraseText()
 comment7.params=
-comment7.target=void\ waitToPressX()
+comment7.target=void\ waitToConfirm()
 numComments=8

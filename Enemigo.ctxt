@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Enemigo
+comment1.params=opcion
+comment1.target=Enemigo(int)
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ biteSound()
+comment4.params=
+comment4.target=void\ growl()
+numComments=5
